@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic, assign) int age;
 
 + (instancetype)shareManager;
 

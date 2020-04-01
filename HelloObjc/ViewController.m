@@ -10,31 +10,29 @@
 #import "SecViewController.h"
 #import "JRSingleton.h"
 #import "MultipleThreadController.h"
-#import <objc/runtime.h>
-#import <objc/message.h>
+#import "RuntimeTester.h"
+
 
 @interface ViewController ()
 
 @property (nonatomic, strong) NSMutableString *name;
 
+@property (nonatomic, strong) RuntimeTester *tester;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    SEL hello = @selector(helloWithInt:andFloat:);
-    NSString *A = ((id (*)(id, SEL, int, float))objc_msgSend)(self, hello, 1,2.2);
-    NSLog(@"============ a:%@ ============", A);
+    self.tester = [RuntimeTester new];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
 
-}
+    //[self.tester sendMessage2Nil];
 
-    - (NSString *)helloWithInt:(int)a andFloat:(float)b {
-        return [NSString stringWithFormat:@"hello a: %i b:%.2f", a, b];
-    }
+    [self.tester sendMessage2Self];
+
+}
 
 @end
