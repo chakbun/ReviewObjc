@@ -21,12 +21,12 @@
 }
 
 + (instancetype)alloc {
-    NSLog(@"============ alloc ============");
+ //   NSLog(@"============ alloc ============");
     return [super alloc];
 }
 
 + (instancetype)allocWithZone:(struct _NSZone *)zone {
-    NSLog(@"============ alloc with zone ============");
+ //   NSLog(@"============ alloc with zone ============");
     return [super allocWithZone:zone];
 }
 

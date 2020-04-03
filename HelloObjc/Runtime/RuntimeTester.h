@@ -27,6 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)sendMessage2Nil;
 
+- (void)bindObject:(id)obj forKey:(NSString *)key;
+
+- (id)getBoundObjectWithKey:(NSString *)key;
+
 @end
 
 NS_ASSUME_NONNULL_END

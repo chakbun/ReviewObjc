@@ -17,6 +17,11 @@ int cfunction() {
     return 0;
 }
 
+void dynamicIMP(id self, SEL _cmd) {
+    int a = 10 * 10;
+    printf("this is result = %i \n", a);
+}
+
 @implementation RuntimeTester
 
 - (void)addMethod {
@@ -48,7 +53,7 @@ int cfunction() {
 }
 
 - (void)sendMessage2Self {
-    ((void (*)(id, SEL))objc_msgSend)(self, @selector(printName));
+    ((void (*)(id, SEL))objc_msgSend)(self, @selector(unExistedMethod));
 }
 
 - (void)sendMessage2Nil {
@@ -75,17 +80,35 @@ int cfunction() {
     NSLog(@"============ statementWithOutReturn ============");
 }
 
+- (void)bindObject:(id)obj forKey:(NSString *)key {
+    objc_setAssociatedObject(self, (__bridge const void * _Nonnull)(key), obj, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (id)getBoundObjectWithKey:(NSString *)key {
+    return objc_getAssociatedObject(self, (__bridge const void * _Nonnull)(key));
+}
+
 #pragma mark - Overide
+
+/**
+    if we call a method which
+    
+ */
+
+//+ (BOOL)resolveClassMethod:(SEL)sel {
+//
+//}
+
 + (BOOL)resolveInstanceMethod:(SEL)aSel {
     
     NSLog(@"============ resolveInstanceMethod ============");
 
     if ([NSStringFromSelector(aSel) isEqualToString:@"unExistedMethod"]) {
-        //BOOL result = class_addMethod([RuntimeTester class], NSSelectorFromString(@"unExistedMethod"), (IMP)cfunction, "v@:@");
-        BOOL result = class_addMethod([RuntimeTester class], NSSelectorFromString(@"unExistedMethod"), class_getMethodImplementation([RuntimeTester class], @selector(statementWithOutReturn)), "v@:@");
-        NSLog(@"============ add unExistedMethod : %@ ============", result ? @"YES":@"NO");
+        //BOOL result = class_addMethod([RuntimeTester class], NSSelectorFromString(@"unExistedMethod"), (IMP)dynamicIMP, "v@:@");
+        //BOOL result = class_addMethod([RuntimeTester class], NSSelectorFromString(@"unExistedMethod"), class_getMethodImplementation([RuntimeTester class], @selector(statementWithOutReturn)), "v@:@");
+        //NSLog(@"============ add unExistedMethod : %@ ============", result ? @"YES":@"NO");
 
-        return YES;
+        //return YES;
     }
     
     return [super resolveInstanceMethod:aSel];
@@ -103,6 +126,7 @@ int cfunction() {
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    NSLog(@"============ methodSignatureForSelector ============");
     NSMethodSignature *sig = [[JRSingleton shareManager] methodSignatureForSelector:aSelector];
     return sig;
 }

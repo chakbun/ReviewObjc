@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DF1C5A7724307DFF00EDF4AC /* RuntimeTester.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1C5A7624307DFF00EDF4AC /* RuntimeTester.m */; };
+		DF1C5A7B2434E73A00EDF4AC /* CopyTester.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1C5A7A2434E73A00EDF4AC /* CopyTester.m */; };
 		DF56986D23EEEFDB00E8D971 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF56986C23EEEFDB00E8D971 /* AppDelegate.m */; };
 		DF56987023EEEFDB00E8D971 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF56986F23EEEFDB00E8D971 /* SceneDelegate.m */; };
 		DF56987323EEEFDB00E8D971 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF56987223EEEFDB00E8D971 /* ViewController.m */; };
@@ -42,6 +43,8 @@
 /* Begin PBXFileReference section */
 		DF1C5A7524307DFF00EDF4AC /* RuntimeTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeTester.h; sourceTree = "<group>"; };
 		DF1C5A7624307DFF00EDF4AC /* RuntimeTester.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeTester.m; sourceTree = "<group>"; };
+		DF1C5A792434E73A00EDF4AC /* CopyTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CopyTester.h; sourceTree = "<group>"; };
+		DF1C5A7A2434E73A00EDF4AC /* CopyTester.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CopyTester.m; sourceTree = "<group>"; };
 		DF56986823EEEFDB00E8D971 /* HelloObjc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloObjc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF56986B23EEEFDB00E8D971 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DF56986C23EEEFDB00E8D971 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -102,6 +105,15 @@
 			path = Runtime;
 			sourceTree = "<group>";
 		};
+		DF1C5A782434E60D00EDF4AC /* Copy */ = {
+			isa = PBXGroup;
+			children = (
+				DF1C5A792434E73A00EDF4AC /* CopyTester.h */,
+				DF1C5A7A2434E73A00EDF4AC /* CopyTester.m */,
+			);
+			path = Copy;
+			sourceTree = "<group>";
+		};
 		DF56985F23EEEFDB00E8D971 = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +137,7 @@
 		DF56986A23EEEFDB00E8D971 /* HelloObjc */ = {
 			isa = PBXGroup;
 			children = (
+				DF1C5A782434E60D00EDF4AC /* Copy */,
 				DF1C5A7424307DDC00EDF4AC /* Runtime */,
 				DFBE80D8242893AA0004FA0B /* Thread */,
 				DFBE80D62428938F0004FA0B /* Singleton */,
@@ -312,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF56987323EEEFDB00E8D971 /* ViewController.m in Sources */,
+				DF1C5A7B2434E73A00EDF4AC /* CopyTester.m in Sources */,
 				DFBE80DB242893F80004FA0B /* MultipleThreadController.m in Sources */,
 				DF56986D23EEEFDB00E8D971 /* AppDelegate.m in Sources */,
 				DF56987E23EEEFE300E8D971 /* main.m in Sources */,
