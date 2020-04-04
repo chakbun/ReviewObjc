@@ -10,5 +10,9 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+
+@property (weak, nonatomic) IBOutlet UIButton *testButton;
+
 @end
 

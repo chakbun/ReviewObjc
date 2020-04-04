@@ -12,7 +12,8 @@
 #import "MultipleThreadController.h"
 #import "RuntimeTester.h"
 #import "CopyTester.h"
-
+#import "UIImageView+JRAdditions.h"
+#import "UIButton+JRAdditions.h"
 
 @interface ViewController ()
 
@@ -27,11 +28,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.testButton addBorderRadius:20];
 
+    
+    
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-
+    
 }
+
+- (IBAction)testButtonAction:(id)sender {
+    
+}
+
 
 @end
