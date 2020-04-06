@@ -14,6 +14,7 @@
 #import "CopyTester.h"
 #import "UIImageView+JRAdditions.h"
 #import "UIButton+JRAdditions.h"
+#import "JRPerferenceManager.h"
 
 @interface ViewController ()
 
@@ -28,10 +29,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.testButton addBorderRadius:20];
-
-    
-    
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -39,7 +36,13 @@
 }
 
 - (IBAction)testButtonAction:(id)sender {
+    NSString *name = [JRPerferenceManager valueForKey:@"name" inPlist:@"Settings"];
+    int level = [[JRPerferenceManager valueForKey:@"level" inPlist:@"Settings"] intValue];
+    NSArray *weaponList = [JRPerferenceManager valueForKey:@"weapons" inPlist:@"Settings"];
+    NSDictionary *relationMap = [JRPerferenceManager valueForKey:@"relationship" inPlist:@"Settings"];
     
+    NSLog(@"============ abbc ============");
+
 }
 
 

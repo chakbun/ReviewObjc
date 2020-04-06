@@ -11,6 +11,8 @@
 		DF1C5A7B2434E73A00EDF4AC /* CopyTester.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1C5A7A2434E73A00EDF4AC /* CopyTester.m */; };
 		DF1C5A842437778200EDF4AC /* UIImageView+JRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1C5A832437778200EDF4AC /* UIImageView+JRAdditions.m */; };
 		DF1C5A872438AED600EDF4AC /* UIButton+JRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1C5A862438AED600EDF4AC /* UIButton+JRAdditions.m */; };
+		DF1C5A90243B0D8100EDF4AC /* JRPerferenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1C5A8E243B0D8000EDF4AC /* JRPerferenceManager.m */; };
+		DF1C5A92243B0D9600EDF4AC /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF1C5A91243B0D9600EDF4AC /* Settings.plist */; };
 		DF56986D23EEEFDB00E8D971 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF56986C23EEEFDB00E8D971 /* AppDelegate.m */; };
 		DF56987023EEEFDB00E8D971 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF56986F23EEEFDB00E8D971 /* SceneDelegate.m */; };
 		DF56987323EEEFDB00E8D971 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF56987223EEEFDB00E8D971 /* ViewController.m */; };
@@ -51,6 +53,9 @@
 		DF1C5A832437778200EDF4AC /* UIImageView+JRAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+JRAdditions.m"; sourceTree = "<group>"; };
 		DF1C5A852438AED600EDF4AC /* UIButton+JRAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+JRAdditions.h"; sourceTree = "<group>"; };
 		DF1C5A862438AED600EDF4AC /* UIButton+JRAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+JRAdditions.m"; sourceTree = "<group>"; };
+		DF1C5A8E243B0D8000EDF4AC /* JRPerferenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRPerferenceManager.m; sourceTree = "<group>"; };
+		DF1C5A8F243B0D8100EDF4AC /* JRPerferenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRPerferenceManager.h; sourceTree = "<group>"; };
+		DF1C5A91243B0D9600EDF4AC /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		DF56986823EEEFDB00E8D971 /* HelloObjc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloObjc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF56986B23EEEFDB00E8D971 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DF56986C23EEEFDB00E8D971 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -131,6 +136,31 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		DF1C5A88243B0CEF00EDF4AC /* Resouces */ = {
+			isa = PBXGroup;
+			children = (
+				DF1C5A89243B0CFA00EDF4AC /* plist */,
+			);
+			path = Resouces;
+			sourceTree = "<group>";
+		};
+		DF1C5A89243B0CFA00EDF4AC /* plist */ = {
+			isa = PBXGroup;
+			children = (
+				DF1C5A91243B0D9600EDF4AC /* Settings.plist */,
+			);
+			path = plist;
+			sourceTree = "<group>";
+		};
+		DF1C5A8D243B0D5800EDF4AC /* File */ = {
+			isa = PBXGroup;
+			children = (
+				DF1C5A8F243B0D8100EDF4AC /* JRPerferenceManager.h */,
+				DF1C5A8E243B0D8000EDF4AC /* JRPerferenceManager.m */,
+			);
+			path = File;
+			sourceTree = "<group>";
+		};
 		DF56985F23EEEFDB00E8D971 = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +184,8 @@
 		DF56986A23EEEFDB00E8D971 /* HelloObjc */ = {
 			isa = PBXGroup;
 			children = (
+				DF1C5A8D243B0D5800EDF4AC /* File */,
+				DF1C5A88243B0CEF00EDF4AC /* Resouces */,
 				DF1C5A7C2437765400EDF4AC /* View */,
 				DF1C5A782434E60D00EDF4AC /* Copy */,
 				DF1C5A7424307DDC00EDF4AC /* Runtime */,
@@ -316,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF56987B23EEEFE300E8D971 /* LaunchScreen.storyboard in Resources */,
+				DF1C5A92243B0D9600EDF4AC /* Settings.plist in Resources */,
 				DF56987823EEEFE300E8D971 /* Assets.xcassets in Resources */,
 				DF56987623EEEFDB00E8D971 /* Main.storyboard in Resources */,
 			);
@@ -344,6 +377,7 @@
 			files = (
 				DF56987323EEEFDB00E8D971 /* ViewController.m in Sources */,
 				DF1C5A7B2434E73A00EDF4AC /* CopyTester.m in Sources */,
+				DF1C5A90243B0D8100EDF4AC /* JRPerferenceManager.m in Sources */,
 				DFBE80DB242893F80004FA0B /* MultipleThreadController.m in Sources */,
 				DF56986D23EEEFDB00E8D971 /* AppDelegate.m in Sources */,
 				DF1C5A842437778200EDF4AC /* UIImageView+JRAdditions.m in Sources */,

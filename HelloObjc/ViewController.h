@@ -14,5 +14,9 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *testButton;
 
+@property (assign, nonatomic) int testInt;
+
+@property (strong, nonatomic) NSString *testStr;
+
 @end
 
