@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (id)valueForKey:(NSString *)key inPlist:(NSString *)plistName;
 
++ (BOOL)saveDictionary:(NSDictionary *)data toPlist:(NSString *)plistName;
+
 @end
 
 NS_ASSUME_NONNULL_END

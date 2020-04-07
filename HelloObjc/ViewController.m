@@ -36,12 +36,12 @@
 }
 
 - (IBAction)testButtonAction:(id)sender {
-    NSString *name = [JRPerferenceManager valueForKey:@"name" inPlist:@"Settings"];
-    int level = [[JRPerferenceManager valueForKey:@"level" inPlist:@"Settings"] intValue];
-    NSArray *weaponList = [JRPerferenceManager valueForKey:@"weapons" inPlist:@"Settings"];
-    NSDictionary *relationMap = [JRPerferenceManager valueForKey:@"relationship" inPlist:@"Settings"];
     
-    NSLog(@"============ abbc ============");
+    NSDictionary *map = @{@"name":@"Zach", @"id":@"sn1001", @"age":@30, @"devices":@[@"iPhone", @"iPad", @"macbook pro"]};
+    
+    BOOL flag = [JRPerferenceManager saveDictionary:map toPlist:@"ZachProfile"];
+    
+    NSLog(@"============ save result:%@ ============", flag ? @"success" : @"fail");
 
 }
 

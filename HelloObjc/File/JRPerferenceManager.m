@@ -20,6 +20,21 @@
     return nil;
 }
 
++ (BOOL)saveDictionary:(NSDictionary *)data toPlist:(NSString *)plistName {
+
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    if ([paths count] > 0) {
+        NSString *documentPath = paths[0];
+        NSLog(@"document path : %@", documentPath);
+        
+        NSString *filePath = [NSString stringWithFormat:@"%@/%@.plist", documentPath, plistName];
+        return [data writeToFile:filePath atomically:YES];
+    }
+    
+    return NO;
+    
+}
+
 
 
 @end
