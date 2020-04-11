@@ -13,6 +13,8 @@
 		DF1C5A872438AED600EDF4AC /* UIButton+JRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1C5A862438AED600EDF4AC /* UIButton+JRAdditions.m */; };
 		DF1C5A90243B0D8100EDF4AC /* JRPerferenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1C5A8E243B0D8000EDF4AC /* JRPerferenceManager.m */; };
 		DF1C5A92243B0D9600EDF4AC /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF1C5A91243B0D9600EDF4AC /* Settings.plist */; };
+		DF4A3D7524419F6200AC5211 /* Company.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DF4A3D7324419F6200AC5211 /* Company.xcdatamodeld */; };
+		DF4A3D842441A32500AC5211 /* CoreDataTester.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4A3D832441A32500AC5211 /* CoreDataTester.m */; };
 		DF56986D23EEEFDB00E8D971 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF56986C23EEEFDB00E8D971 /* AppDelegate.m */; };
 		DF56987023EEEFDB00E8D971 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF56986F23EEEFDB00E8D971 /* SceneDelegate.m */; };
 		DF56987323EEEFDB00E8D971 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF56987223EEEFDB00E8D971 /* ViewController.m */; };
@@ -24,6 +26,10 @@
 		DF56989323EEEFE400E8D971 /* HelloObjcUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF56989223EEEFE400E8D971 /* HelloObjcUITests.m */; };
 		DF5698A223EEF3C700E8D971 /* SecViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5698A123EEF3C700E8D971 /* SecViewController.m */; };
 		DF5DF3E223FFC37100EB4FB5 /* JRSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5DF3E123FFC37100EB4FB5 /* JRSingleton.m */; };
+		DFB5A14F2441AC1C00611801 /* Department.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB5A1492441AC1C00611801 /* Department.m */; };
+		DFB5A1502441AC1C00611801 /* Department+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB5A14A2441AC1C00611801 /* Department+CoreDataProperties.m */; };
+		DFB5A1512441AC1C00611801 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB5A14D2441AC1C00611801 /* Employee.m */; };
+		DFB5A1522441AC1C00611801 /* Employee+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB5A14E2441AC1C00611801 /* Employee+CoreDataProperties.m */; };
 		DFBE80DB242893F80004FA0B /* MultipleThreadController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBE80DA242893F80004FA0B /* MultipleThreadController.m */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +62,9 @@
 		DF1C5A8E243B0D8000EDF4AC /* JRPerferenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRPerferenceManager.m; sourceTree = "<group>"; };
 		DF1C5A8F243B0D8100EDF4AC /* JRPerferenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRPerferenceManager.h; sourceTree = "<group>"; };
 		DF1C5A91243B0D9600EDF4AC /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
+		DF4A3D7424419F6200AC5211 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		DF4A3D822441A32500AC5211 /* CoreDataTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataTester.h; sourceTree = "<group>"; };
+		DF4A3D832441A32500AC5211 /* CoreDataTester.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataTester.m; sourceTree = "<group>"; };
 		DF56986823EEEFDB00E8D971 /* HelloObjc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloObjc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF56986B23EEEFDB00E8D971 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DF56986C23EEEFDB00E8D971 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -78,6 +87,14 @@
 		DF5698A123EEF3C700E8D971 /* SecViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecViewController.m; sourceTree = "<group>"; };
 		DF5DF3E023FFC37100EB4FB5 /* JRSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JRSingleton.h; sourceTree = "<group>"; };
 		DF5DF3E123FFC37100EB4FB5 /* JRSingleton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JRSingleton.m; sourceTree = "<group>"; };
+		DFB5A1472441AC1C00611801 /* Department+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Department+CoreDataProperties.h"; sourceTree = "<group>"; };
+		DFB5A1482441AC1C00611801 /* Department.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Department.h; sourceTree = "<group>"; };
+		DFB5A1492441AC1C00611801 /* Department.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Department.m; sourceTree = "<group>"; };
+		DFB5A14A2441AC1C00611801 /* Department+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Department+CoreDataProperties.m"; sourceTree = "<group>"; };
+		DFB5A14B2441AC1C00611801 /* Employee+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Employee+CoreDataProperties.h"; sourceTree = "<group>"; };
+		DFB5A14C2441AC1C00611801 /* Employee.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
+		DFB5A14D2441AC1C00611801 /* Employee.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
+		DFB5A14E2441AC1C00611801 /* Employee+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Employee+CoreDataProperties.m"; sourceTree = "<group>"; };
 		DFBE80D9242893F80004FA0B /* MultipleThreadController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipleThreadController.h; sourceTree = "<group>"; };
 		DFBE80DA242893F80004FA0B /* MultipleThreadController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipleThreadController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,6 +178,24 @@
 			path = File;
 			sourceTree = "<group>";
 		};
+		DF4A3D7224419F3D00AC5211 /* coredata */ = {
+			isa = PBXGroup;
+			children = (
+				DFB5A1472441AC1C00611801 /* Department+CoreDataProperties.h */,
+				DFB5A1482441AC1C00611801 /* Department.h */,
+				DFB5A1492441AC1C00611801 /* Department.m */,
+				DFB5A14A2441AC1C00611801 /* Department+CoreDataProperties.m */,
+				DFB5A14B2441AC1C00611801 /* Employee+CoreDataProperties.h */,
+				DFB5A14C2441AC1C00611801 /* Employee.h */,
+				DFB5A14D2441AC1C00611801 /* Employee.m */,
+				DFB5A14E2441AC1C00611801 /* Employee+CoreDataProperties.m */,
+				DF4A3D7324419F6200AC5211 /* Company.xcdatamodeld */,
+				DF4A3D822441A32500AC5211 /* CoreDataTester.h */,
+				DF4A3D832441A32500AC5211 /* CoreDataTester.m */,
+			);
+			path = coredata;
+			sourceTree = "<group>";
+		};
 		DF56985F23EEEFDB00E8D971 = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +219,7 @@
 		DF56986A23EEEFDB00E8D971 /* HelloObjc */ = {
 			isa = PBXGroup;
 			children = (
+				DF4A3D7224419F3D00AC5211 /* coredata */,
 				DF1C5A8D243B0D5800EDF4AC /* File */,
 				DF1C5A88243B0CEF00EDF4AC /* Resouces */,
 				DF1C5A7C2437765400EDF4AC /* View */,
@@ -383,9 +419,15 @@
 				DF1C5A842437778200EDF4AC /* UIImageView+JRAdditions.m in Sources */,
 				DF56987E23EEEFE300E8D971 /* main.m in Sources */,
 				DF5698A223EEF3C700E8D971 /* SecViewController.m in Sources */,
+				DF4A3D842441A32500AC5211 /* CoreDataTester.m in Sources */,
+				DFB5A1522441AC1C00611801 /* Employee+CoreDataProperties.m in Sources */,
+				DFB5A1502441AC1C00611801 /* Department+CoreDataProperties.m in Sources */,
 				DF1C5A7724307DFF00EDF4AC /* RuntimeTester.m in Sources */,
+				DFB5A1512441AC1C00611801 /* Employee.m in Sources */,
+				DFB5A14F2441AC1C00611801 /* Department.m in Sources */,
 				DF56987023EEEFDB00E8D971 /* SceneDelegate.m in Sources */,
 				DF1C5A872438AED600EDF4AC /* UIButton+JRAdditions.m in Sources */,
+				DF4A3D7524419F6200AC5211 /* Company.xcdatamodeld in Sources */,
 				DF5DF3E223FFC37100EB4FB5 /* JRSingleton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -701,6 +743,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DF4A3D7324419F6200AC5211 /* Company.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DF4A3D7424419F6200AC5211 /* Model.xcdatamodel */,
+			);
+			currentVersion = DF4A3D7424419F6200AC5211 /* Model.xcdatamodel */;
+			path = Company.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DF56986023EEEFDB00E8D971 /* Project object */;
 }

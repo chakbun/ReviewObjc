@@ -15,6 +15,7 @@
 #import "UIImageView+JRAdditions.h"
 #import "UIButton+JRAdditions.h"
 #import "JRPerferenceManager.h"
+#import "CoreDataTester.h"
 
 @interface ViewController ()
 
@@ -28,7 +29,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+    CoreDataTester *tester = [CoreDataTester new];
+    [tester createManagerObjectContext];
+    [tester insert];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -37,12 +41,7 @@
 
 - (IBAction)testButtonAction:(id)sender {
     
-    NSDictionary *map = @{@"name":@"Zach", @"id":@"sn1001", @"age":@30, @"devices":@[@"iPhone", @"iPad", @"macbook pro"]};
-    
-    BOOL flag = [JRPerferenceManager saveDictionary:map toPlist:@"ZachProfile"];
-    
-    NSLog(@"============ save result:%@ ============", flag ? @"success" : @"fail");
-
+   
 }
 
 
