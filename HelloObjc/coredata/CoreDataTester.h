@@ -13,7 +13,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CoreDataTester : NSObject
 
 - (void)createManagerObjectContext;
-- (void)insert;
+
+- (void)addEmployeeName:(NSString *)name age:(NSInteger)age sn:(NSString *)sn;
+
+- (void)deleteEmployeeWithName:(NSString *)name age:(NSInteger)age sn:(NSString *)sn;
+
+- (NSArray *)queryEmployeeWithName:(NSString *)name age:(NSUInteger)age sn:(NSString *)sn;
 
 @end
 

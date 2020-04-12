@@ -14,9 +14,9 @@
             filePath = "HelloObjc/coredata/CoreDataTester.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "-insert"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "-addEmployeeName:age:sn:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -30,9 +30,9 @@
             filePath = "HelloObjc/coredata/CoreDataTester.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "-insert"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "-addEmployeeName:age:sn:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

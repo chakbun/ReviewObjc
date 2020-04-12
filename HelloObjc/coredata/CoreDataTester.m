@@ -39,22 +39,84 @@
     
 }
 
-- (void)insert {
+- (NSArray *)queryEmployeeWithName:(NSString *)name age:(NSUInteger)age sn:(NSString *)sn {
+
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Employee"];
+    
+    NSMutableString *params = [NSMutableString stringWithString:@""];
+    
+    if (name) {
+        [params appendFormat:@" name = %@ ", name];
+    }
+    
+    if (age > 0) {
+        if (params.length > 0) {
+            [params appendString:@" AND "];
+        }
+        [params appendFormat:@" age = %lu ", age];
+    }
+    
+    if (sn) {
+        if (params.length > 0) {
+            [params appendString:@" AND "];
+        }
+        [params appendFormat:@" sn = %@ ", sn];
+    }
+    
+    if (name) {    
+        request.predicate = [NSPredicate predicateWithFormat:@" name=%@ ", name];
+    }
+    
+    NSError *err;
+
+    NSArray *result = [self.moc executeFetchRequest:request error:&err];
+    
+    if (err) {
+        NSLog(@"============ query err=%@ ============", err);
+    }
+    
+    return result;
+    
+}
+
+- (void)addEmployeeName:(NSString *)name age:(NSInteger)age sn:(NSString *)sn {
     Employee *employee = [NSEntityDescription insertNewObjectForEntityForName:@"Employee" inManagedObjectContext:self.moc];
-    employee.sn = @"em_1001";
-    employee.name = @"Zach";
-    employee.age = 15;
+    employee.sn = sn;
+    employee.name = name;
+    employee.age = age;
     
     NSError *err;
     if([self.moc hasChanges]) {
         BOOL result = [self.moc save:&err];
         NSLog(@"============ result:%@ ============", result?@"YES":@"NO");
+        
+        if (err) {
+            NSLog(@"============ insert err=%@ ============", err);
+        }
     }
+}
+
+- (void)deleteEmployeeWithName:(NSString *)name age:(NSInteger)age sn:(NSString *)sn {
     
-    if (err) {
-        NSLog(@"============ insert err=%@ ============", err);
+    NSArray *result = [self queryEmployeeWithName:name age:age sn:sn];
+    
+     __weak __typeof(self) weakSelf = self;
+    
+    [result enumerateObjectsUsingBlock:^(Employee *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [weakSelf.moc deleteObject:obj];
+    }];
+    
+    NSError *err;
+
+    if ([self.moc hasChanges]) {
+        BOOL result = [self.moc save:&err];
+        NSLog(@"============ delete result:%@ ============", result?@"YES":@"NO");
+        
+        if (err) {
+            NSLog(@"============ delete err=%@ ============", err);
+        }
+        
     }
-    
 }
 
 @end

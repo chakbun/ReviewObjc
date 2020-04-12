@@ -16,12 +16,13 @@
 #import "UIButton+JRAdditions.h"
 #import "JRPerferenceManager.h"
 #import "CoreDataTester.h"
+#import "Employee.h"
 
 @interface ViewController ()
 
 @property (nonatomic, strong) NSMutableString *name;
 
-@property (nonatomic, strong) RuntimeTester *tester;
+@property (nonatomic, strong) CoreDataTester *tester;
 
 @end
 
@@ -30,9 +31,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    CoreDataTester *tester = [CoreDataTester new];
-    [tester createManagerObjectContext];
-    [tester insert];
+    self.tester = [CoreDataTester new];
+    [self.tester createManagerObjectContext];
+//    [self.tester addEmployeeName:@"Zach" age:30 sn:@"EM_1001"];
+//    [self.tester addEmployeeName:@"Jaben" age:30 sn:@"EM_1002"];
+//    [self.tester addEmployeeName:@"Jennifer" age:29 sn:@"EM_1003"];
+//    [self.tester addEmployeeName:@"Amazing" age:29 sn:@"EM_1004"];
+//    [self.tester addEmployeeName:@"YaQing" age:1 sn:@"EM_1005"];
+
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -41,7 +47,10 @@
 
 - (IBAction)testButtonAction:(id)sender {
     
-   
+    NSArray<Employee *> *result = [self.tester queryEmployeeWithName:nil age:0 sn:nil];
+    [result enumerateObjectsUsingBlock:^(Employee * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSLog(@"name=%@, age=%i, sn=%@", obj.name, obj.age, obj.sn);
+    }];
 }
 
 
