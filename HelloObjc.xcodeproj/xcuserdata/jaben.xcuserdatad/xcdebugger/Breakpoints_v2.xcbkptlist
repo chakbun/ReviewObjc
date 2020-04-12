@@ -7,33 +7,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6FAEABAF-70F1-4561-B391-9D13C70AA595"
+            uuid = "014C3B38-B8CA-4CC1-85CF-24E88B089F6E"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HelloObjc/coredata/CoreDataTester.m"
+            filePath = "HelloObjc/ViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "-addEmployeeName:age:sn:"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "759DCC47-318A-49F6-96B3-8767C3B36C00"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HelloObjc/coredata/CoreDataTester.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "-addEmployeeName:age:sn:"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "014C3B38-B8CA-4CC1-85CF-24E88B089F6E - d9da49d2f45bde2e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController viewDidLoad]"
+                  moduleName = "HelloObjc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jaben/Desktop/HelloObjc/HelloObjc/ViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "51">
+               </Location>
+               <Location
+                  uuid = "014C3B38-B8CA-4CC1-85CF-24E88B089F6E - 4172705b231eaebf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__29-[ViewController viewDidLoad]_block_invoke"
+                  moduleName = "HelloObjc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jaben/Desktop/HelloObjc/HelloObjc/ViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "113">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

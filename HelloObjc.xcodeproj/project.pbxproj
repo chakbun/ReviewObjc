@@ -30,6 +30,7 @@
 		DFB5A1502441AC1C00611801 /* Department+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB5A14A2441AC1C00611801 /* Department+CoreDataProperties.m */; };
 		DFB5A1512441AC1C00611801 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB5A14D2441AC1C00611801 /* Employee.m */; };
 		DFB5A1522441AC1C00611801 /* Employee+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB5A14E2441AC1C00611801 /* Employee+CoreDataProperties.m */; };
+		DFB5A15624434E0B00611801 /* JRNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB5A15524434E0B00611801 /* JRNetworkManager.m */; };
 		DFBE80DB242893F80004FA0B /* MultipleThreadController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBE80DA242893F80004FA0B /* MultipleThreadController.m */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,8 @@
 		DFB5A14C2441AC1C00611801 /* Employee.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
 		DFB5A14D2441AC1C00611801 /* Employee.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
 		DFB5A14E2441AC1C00611801 /* Employee+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Employee+CoreDataProperties.m"; sourceTree = "<group>"; };
+		DFB5A15424434E0B00611801 /* JRNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JRNetworkManager.h; sourceTree = "<group>"; };
+		DFB5A15524434E0B00611801 /* JRNetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JRNetworkManager.m; sourceTree = "<group>"; };
 		DFBE80D9242893F80004FA0B /* MultipleThreadController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipleThreadController.h; sourceTree = "<group>"; };
 		DFBE80DA242893F80004FA0B /* MultipleThreadController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipleThreadController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -219,6 +222,7 @@
 		DF56986A23EEEFDB00E8D971 /* HelloObjc */ = {
 			isa = PBXGroup;
 			children = (
+				DFB5A15324434DE000611801 /* Network */,
 				DF4A3D7224419F3D00AC5211 /* coredata */,
 				DF1C5A8D243B0D5800EDF4AC /* File */,
 				DF1C5A88243B0CEF00EDF4AC /* Resouces */,
@@ -260,6 +264,15 @@
 				DF56989423EEEFE400E8D971 /* Info.plist */,
 			);
 			path = HelloObjcUITests;
+			sourceTree = "<group>";
+		};
+		DFB5A15324434DE000611801 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				DFB5A15424434E0B00611801 /* JRNetworkManager.h */,
+				DFB5A15524434E0B00611801 /* JRNetworkManager.m */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		DFBE80D62428938F0004FA0B /* Singleton */ = {
@@ -411,6 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFB5A15624434E0B00611801 /* JRNetworkManager.m in Sources */,
 				DF56987323EEEFDB00E8D971 /* ViewController.m in Sources */,
 				DF1C5A7B2434E73A00EDF4AC /* CopyTester.m in Sources */,
 				DF1C5A90243B0D8100EDF4AC /* JRPerferenceManager.m in Sources */,

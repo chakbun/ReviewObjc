@@ -30,14 +30,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
 
-    self.tester = [CoreDataTester new];
-    [self.tester createManagerObjectContext];
-//    [self.tester addEmployeeName:@"Zach" age:30 sn:@"EM_1001"];
-//    [self.tester addEmployeeName:@"Jaben" age:30 sn:@"EM_1002"];
-//    [self.tester addEmployeeName:@"Jennifer" age:29 sn:@"EM_1003"];
-//    [self.tester addEmployeeName:@"Amazing" age:29 sn:@"EM_1004"];
-//    [self.tester addEmployeeName:@"YaQing" age:1 sn:@"EM_1005"];
+    
+    
 
 }
 
