@@ -6,9 +6,9 @@
 //  Copyright © 2020 Jaben. All rights reserved.
 //
 
-#import "JRNetworkManager.h"
+#import "NetworkTester.h"
 
-@implementation JRNetworkManager
+@implementation NetworkTester
 
 - (void)startATask {
     NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:@"http://api.dataatwork.org/v1/spec/skills-api.json"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
