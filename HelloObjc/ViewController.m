@@ -17,12 +17,13 @@
 #import "JRPerferenceManager.h"
 #import "CoreDataTester.h"
 #import "Employee.h"
+#import "NetworkTester.h"
 
 @interface ViewController ()
 
 @property (nonatomic, strong) NSMutableString *name;
 
-@property (nonatomic, strong) CoreDataTester *tester;
+@property (nonatomic, strong) NetworkTester *tester;
 
 @end
 
@@ -30,11 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-
-    
-    
-
+    self.tester = [NetworkTester new];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -42,12 +39,9 @@
 }
 
 - (IBAction)testButtonAction:(id)sender {
-    
-    NSArray<Employee *> *result = [self.tester queryEmployeeWithName:nil age:0 sn:nil];
-    [result enumerateObjectsUsingBlock:^(Employee * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSLog(@"name=%@, age=%i, sn=%@", obj.name, obj.age, obj.sn);
-    }];
+    [self.tester initClientTCPSocketAndConnectServerIP:@"127.0.0.1" port:27323];
 }
+
 
 
 @end

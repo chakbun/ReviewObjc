@@ -12,7 +12,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NetworkTester : NSObject
 
-- (void)startATask;
+- (void)quickStartHTTPTask;
+
+//TCP
+- (void)initClientTCPSocketAndConnectServerIP:(NSString *)ip port:(int)port;
+- (void)readStreamData4ClientInTCP;
+- (void)sendStreamData4ClientInTCP;
+
+- (void)initSocket4ServerInTCP;
+
 
 @end
 
