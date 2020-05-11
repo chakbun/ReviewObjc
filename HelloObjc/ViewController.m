@@ -18,30 +18,46 @@
 #import "CoreDataTester.h"
 #import "Employee.h"
 #import "NetworkTester.h"
+#import "RunLoopTester.h"
 
-@interface ViewController ()
+@interface ViewController ()<DelegateTester>
 
 @property (nonatomic, strong) NSMutableString *name;
 
-@property (nonatomic, strong) NetworkTester *tester;
+@property (nonatomic, strong) RunLoopTester *tester;
 
 @end
 
 @implementation ViewController
+@synthesize delegateName;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tester = [NetworkTester new];
+    
+    self.tester = [RunLoopTester new];
+    [self.tester addObserverOnMainThread];
+    [self.tester addObserverOnNewThread];
+    
+    sleep(3);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"============ do something on main thread ============");
+        CGFloat randomAlpha = (arc4random() % 100)*0.01;
+        [self.view setBackgroundColor:[UIColor colorWithWhite:0.5 alpha:randomAlpha]];
+    });
 }
+
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
 }
 
 - (IBAction)testButtonAction:(id)sender {
-    [self.tester initClientTCPSocketAndConnectServerIP:@"127.0.0.1" port:27323];
+
 }
 
-
+#pragma mark - DelegateTester
+- (NSInteger)count4Names {
+    return 10;
+}
 
 @end

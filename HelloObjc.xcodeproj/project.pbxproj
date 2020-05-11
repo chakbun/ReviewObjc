@@ -26,6 +26,7 @@
 		DF56989323EEEFE400E8D971 /* HelloObjcUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF56989223EEEFE400E8D971 /* HelloObjcUITests.m */; };
 		DF5698A223EEF3C700E8D971 /* SecViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5698A123EEF3C700E8D971 /* SecViewController.m */; };
 		DF5DF3E223FFC37100EB4FB5 /* JRSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5DF3E123FFC37100EB4FB5 /* JRSingleton.m */; };
+		DF755B1D246992DB00F7D1BB /* RunLoopTester.m in Sources */ = {isa = PBXBuildFile; fileRef = DF755B1C246992DB00F7D1BB /* RunLoopTester.m */; };
 		DFB5A14F2441AC1C00611801 /* Department.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB5A1492441AC1C00611801 /* Department.m */; };
 		DFB5A1502441AC1C00611801 /* Department+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB5A14A2441AC1C00611801 /* Department+CoreDataProperties.m */; };
 		DFB5A1512441AC1C00611801 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB5A14D2441AC1C00611801 /* Employee.m */; };
@@ -88,6 +89,9 @@
 		DF5698A123EEF3C700E8D971 /* SecViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecViewController.m; sourceTree = "<group>"; };
 		DF5DF3E023FFC37100EB4FB5 /* JRSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JRSingleton.h; sourceTree = "<group>"; };
 		DF5DF3E123FFC37100EB4FB5 /* JRSingleton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JRSingleton.m; sourceTree = "<group>"; };
+		DF755B1924682C2900F7D1BB /* DelegateTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DelegateTester.h; sourceTree = "<group>"; };
+		DF755B1B246992DB00F7D1BB /* RunLoopTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RunLoopTester.h; sourceTree = "<group>"; };
+		DF755B1C246992DB00F7D1BB /* RunLoopTester.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunLoopTester.m; sourceTree = "<group>"; };
 		DFB5A1472441AC1C00611801 /* Department+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Department+CoreDataProperties.h"; sourceTree = "<group>"; };
 		DFB5A1482441AC1C00611801 /* Department.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Department.h; sourceTree = "<group>"; };
 		DFB5A1492441AC1C00611801 /* Department.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Department.m; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 		DF56986A23EEEFDB00E8D971 /* HelloObjc */ = {
 			isa = PBXGroup;
 			children = (
+				DF755B1A2469917B00F7D1BB /* RunLoop */,
 				DFB5A15324434DE000611801 /* Network */,
 				DF4A3D7224419F3D00AC5211 /* coredata */,
 				DF1C5A8D243B0D5800EDF4AC /* File */,
@@ -266,11 +271,21 @@
 			path = HelloObjcUITests;
 			sourceTree = "<group>";
 		};
+		DF755B1A2469917B00F7D1BB /* RunLoop */ = {
+			isa = PBXGroup;
+			children = (
+				DF755B1B246992DB00F7D1BB /* RunLoopTester.h */,
+				DF755B1C246992DB00F7D1BB /* RunLoopTester.m */,
+			);
+			path = RunLoop;
+			sourceTree = "<group>";
+		};
 		DFB5A15324434DE000611801 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				DFB5A15424434E0B00611801 /* NetworkTester.h */,
 				DFB5A15524434E0B00611801 /* NetworkTester.m */,
+				DF755B1924682C2900F7D1BB /* DelegateTester.h */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -440,6 +455,7 @@
 				DFB5A1512441AC1C00611801 /* Employee.m in Sources */,
 				DFB5A14F2441AC1C00611801 /* Department.m in Sources */,
 				DF56987023EEEFDB00E8D971 /* SceneDelegate.m in Sources */,
+				DF755B1D246992DB00F7D1BB /* RunLoopTester.m in Sources */,
 				DF1C5A872438AED600EDF4AC /* UIButton+JRAdditions.m in Sources */,
 				DF4A3D7524419F6200AC5211 /* Company.xcdatamodeld in Sources */,
 				DF5DF3E223FFC37100EB4FB5 /* JRSingleton.m in Sources */,

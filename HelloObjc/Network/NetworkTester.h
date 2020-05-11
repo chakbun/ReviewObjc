@@ -7,11 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DelegateTester.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface NetworkTester : NSObject
 
+@property (nonatomic, weak) id<DelegateTester> delegate;
+
+- (void)testDelegate;
 - (void)quickStartHTTPTask;
 
 //TCP
@@ -19,6 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)readStreamData4ClientInTCP;
 - (void)sendStreamData4ClientInTCP;
 
+//UDP
+- (void)initClientUDPSenderIP:(NSString *)ip port:(int)port;
+- (void)sendDataInUDP;
+
+//Server
 - (void)initSocket4ServerInTCP;
 
 

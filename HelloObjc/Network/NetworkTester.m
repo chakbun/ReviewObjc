@@ -88,9 +88,21 @@ void TCPServerAcceptCallBack(CFSocketRef s, CFSocketCallBackType type, CFDataRef
 
 @property (nonatomic, assign) CFSocketRef serverSocketRef;
 
+@property (nonatomic, assign) CFDataRef addressRef;
+
 @end
 
 @implementation NetworkTester
+
+- (void)testDelegate {
+    if (self.delegate) {
+        NSLog(@"============ name:%@ ============",self.delegate.delegateName);
+        
+        if ([self.delegate respondsToSelector:@selector(count4Names)]) {
+            NSLog(@"============ count:%li ============", [self.delegate count4Names]);
+        }
+    }
+}
 
 - (void)quickStartHTTPTask {
     NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:@"http://api.dataatwork.org/v1/spec/skills-api.json"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -98,6 +110,37 @@ void TCPServerAcceptCallBack(CFSocketRef s, CFSocketCallBackType type, CFDataRef
     }];
     
     [task resume];
+}
+
+#pragma mark - Client 4 UDP
+- (void)initClientUDPSenderIP:(NSString *)ip port:(int)port {
+    CFSocketContext ctx = {0, (__bridge void *)self, 0, 0, 0};
+    self.clientSocketRef = CFSocketCreate(kCFAllocatorDefault, PF_INET, SOCK_DGRAM, IPPROTO_UDP, kCFSocketNoCallBack, NULL, &ctx);
+    
+    self.addressRef = [NetworkTester CFDataCreateWithIP:ip port:port];
+    
+    CFRunLoopRef runLoopRef = CFRunLoopGetCurrent();
+    CFRunLoopSourceRef sourceRef = CFSocketCreateRunLoopSource(kCFAllocatorDefault, self.clientSocketRef, 0);
+    CFRunLoopAddSource(runLoopRef, sourceRef, kCFRunLoopCommonModes);
+    CFRelease(sourceRef);
+    CFRunLoopRun();
+}
+
+- (void)sendDataInUDP {
+    char *sos = "- - - . . - - -";
+    
+    NSLog(@"============ send char:%s ============", sos);
+    
+    CFDataRef dataRef = CFDataCreate(kCFAllocatorDefault, (UInt8 *)sos, strlen(sos));
+    CFSocketError err = CFSocketSendData(self.clientSocketRef, self.addressRef, dataRef, 3);
+          
+//    sendto(self.clientSocketRef, sos, strlen(sos), 0, self.addressRef, <#socklen_t#>)
+    if (err == kCFSocketSuccess) {
+        NSLog(@"============ send successfully ============");
+    }else {
+        NSLog(@"============ send fail ============");
+    }
+      
 }
 
 #pragma mark - Client 4 TCP
@@ -160,7 +203,12 @@ void TCPServerAcceptCallBack(CFSocketRef s, CFSocketCallBackType type, CFDataRef
         NSString *str = @"exit";
         send(CFSocketGetNative(self.clientSocketRef), str.UTF8String, strlen(str.UTF8String), 0);
     }
-    
+}
+
+#pragma mark - Server 4 UDP
+- (void)initSocket4ServerInUDP {
+//    self.serverSocketRef = CFSocketCreate(kCFAllocatorDefault, PF_INET, SOCK_DGRAM, IPPROTO_UDP, kCFSocketAcceptCallBack, TCPServerAcceptCallBack, );
+
 }
 
 #pragma mark - Server 4 TCP
@@ -207,7 +255,7 @@ void TCPServerAcceptCallBack(CFSocketRef s, CFSocketCallBackType type, CFDataRef
     addr.sin_addr.s_addr = inet_addr(ip.UTF8String);
     addr.sin_port = htons(port);
     addr.sin_family = AF_INET;
-    addr.sin_len = sizeof(addr);
+    addr.sin_len = sizeof(ip);
     
     CFDataRef dataRef = CFDataCreate(kCFAllocatorDefault, (UInt8 *)&addr, sizeof(addr));
     return dataRef;
