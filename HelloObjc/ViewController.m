@@ -19,12 +19,13 @@
 #import "Employee.h"
 #import "NetworkTester.h"
 #import "RunLoopTester.h"
+#import "KVOCTester.h"
 
 @interface ViewController ()<DelegateTester>
 
 @property (nonatomic, strong) NSMutableString *name;
 
-@property (nonatomic, strong) RunLoopTester *tester;
+@property (nonatomic, strong) KVOCTester *tester;
 
 @end
 
@@ -33,26 +34,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.tester = [RunLoopTester new];
-    [self.tester addObserverOnMainThread];
-    [self.tester addObserverOnNewThread];
-    
-    sleep(3);
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSLog(@"============ do something on main thread ============");
-        CGFloat randomAlpha = (arc4random() % 100)*0.01;
-        [self.view setBackgroundColor:[UIColor colorWithWhite:0.5 alpha:randomAlpha]];
-    });
+    self.tester = [KVOCTester new];
+    [self.tester kvcTesting];
 }
 
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
+    [self.tester kvoTesting];
 }
 
 - (IBAction)testButtonAction:(id)sender {
-
+    [self.tester cleanObserver];
 }
 
 #pragma mark - DelegateTester

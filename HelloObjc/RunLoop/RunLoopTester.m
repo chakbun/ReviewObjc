@@ -49,7 +49,7 @@
 - (void)addObserverOnNewThread {
     [NSThread detachNewThreadWithBlock:^{
         NSLog(@"============ thread:%@ ============", [NSThread currentThread]);
-        [NSTimer scheduledTimerWithTimeInterval:5 repeats:NO block:^(NSTimer * _Nonnull timer) {
+        [NSTimer scheduledTimerWithTimeInterval:3 repeats:NO block:^(NSTimer * _Nonnull timer) {
             NSLog(@"============ time is up in New Thread ============");
         }];
         
