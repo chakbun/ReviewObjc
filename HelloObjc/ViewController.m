@@ -43,9 +43,9 @@
 - (IBAction)testButtonAction:(id)sender {
     
      __weak __typeof(self) weakSelf = self;
-    [self.tester loadAVPlayItemWithCompleted:^{
-        weakSelf.tester.mPlayer.rate = 1.0;
+    [self.tester loadAVPlayItemWithCompleted:^(int seconds){
         weakSelf.playerView.player = weakSelf.tester.mPlayer;
+        NSLog(@"time=>%i:%i", seconds/60, seconds%60);
     }];
 
 }

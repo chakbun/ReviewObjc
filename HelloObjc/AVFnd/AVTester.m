@@ -25,7 +25,7 @@ static const NSString *PlayerStatusContext;
     [self.mPlayer removeTimeObserver:self];
 }
 
-- (void)loadAVPlayItemWithCompleted:(void(^)(void))completed {
+- (void)loadAVPlayItemWithCompleted:(void(^)(int seconds))completed {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"happylover" ofType:@"mp4"];
     AVURLAsset *avsert = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:path]];
     NSString *tracksKey = @"tracks";
@@ -35,19 +35,20 @@ static const NSString *PlayerStatusContext;
     [avsert loadValuesAsynchronouslyForKeys:@[tracksKey] completionHandler:^{
         
         NSError *error;
-        AVKeyValueStatus status = [avsert statusOfValueForKey:tracksKey error:&error];
+        AVKeyValueStatus status = [avsert statusOfValueForKey:@"tracks" error:&error];
         if (status == AVKeyValueStatusLoaded) {
             weakSelf.playerItem = [AVPlayerItem playerItemWithAsset:avsert];
              // ensure that this is done before the playerItem is associated with the player
+            
             [weakSelf.playerItem addObserver:weakSelf forKeyPath:@"status"
                         options:NSKeyValueObservingOptionNew context:&ItemStatusContext];
             
             weakSelf.mPlayer = [[AVPlayer alloc] initWithPlayerItem:weakSelf.playerItem];
             [weakSelf.mPlayer addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:&PlayerStatusContext];
-            if([weakSelf.playerItem canPlayFastForward]) {
-                weakSelf.mPlayer.rate = 2.0;
-            }
-            completed();
+            
+            CMTime t = [[[[[weakSelf.playerItem tracks] objectAtIndex:0] assetTrack] asset] duration];
+            long long seconds = t.value / t.timescale;
+            completed((int)seconds);
         }
         else {
             // You should deal with the error appropriately.
@@ -105,7 +106,7 @@ static const NSString *PlayerStatusContext;
     }
     
     __weak __typeof(self) weakSelf = self;
-    [self loadAVPlayItemWithCompleted:^{
+    [self loadAVPlayItemWithCompleted:^(int seconds){
         weakSelf.playerVC.player = weakSelf.mPlayer;
     }];
     return self.playerVC;
@@ -117,7 +118,7 @@ static const NSString *PlayerStatusContext;
         int status = [change[NSKeyValueChangeNewKey] intValue];
         switch (status) {
             case AVPlayerItemStatusReadyToPlay: {
-                NSLog(@"============ AVPlayerItemStatusReadyToPlay ============");
+                NSLog(@"============ AVPlayerItemSt atusReadyToPlay ============");
                 break;
             }
             case AVPlayerItemStatusFailed:

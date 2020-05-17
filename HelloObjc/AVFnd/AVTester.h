@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) AVPlayer *mPlayer;
 
 - (id)playerController;
-- (void)loadAVPlayItemWithCompleted:(void(^)(void))completed;
+- (void)loadAVPlayItemWithCompleted:(void(^)(int seconds))completed;
 
 @end
 
