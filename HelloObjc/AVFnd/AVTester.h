@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AVTester : NSObject
 
 @property (nonatomic, strong) AVPlayer *mPlayer;
+@property (nonatomic, strong) void(^currentTimeBlock)(int seconds);
 
 - (id)playerController;
 - (void)loadAVPlayItemWithCompleted:(void(^)(int seconds))completed;

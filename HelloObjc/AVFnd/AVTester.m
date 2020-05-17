@@ -45,6 +45,10 @@ static const NSString *PlayerStatusContext;
             
             weakSelf.mPlayer = [[AVPlayer alloc] initWithPlayerItem:weakSelf.playerItem];
             [weakSelf.mPlayer addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:&PlayerStatusContext];
+            [weakSelf.mPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1, 1) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+                long long seconds = time.value/1000000000;
+                weakSelf.currentTimeBlock((int)seconds);
+            }];
             
             CMTime t = [[[[[weakSelf.playerItem tracks] objectAtIndex:0] assetTrack] asset] duration];
             long long seconds = t.value / t.timescale;
@@ -70,7 +74,7 @@ static const NSString *PlayerStatusContext;
 ////        [_mPlayer addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:&PlayerStatusContext];
 //
 ////        [self addObserver2Player:_mPlayer inTimes:@[@3, @9, @12]];
-////        [self addObserver2Player:_mPlayer perSeconds:3];
+//        [self addObserver2Player:_mPlayer perSeconds:3];
 //
 //    }
 //    return _mPlayer;
@@ -132,26 +136,32 @@ static const NSString *PlayerStatusContext;
         }
         return;
     }else if(context == &PlayerStatusContext){
-        int status = [change[NSKeyValueChangeNewKey] intValue];
-        switch (status) {
-            case AVPlayerStatusReadyToPlay:
-                [self.mPlayer play];
-                NSLog(@"============ AVPlayerStatusReadyToPlay ============");
-                break;
-            case AVPlayerStatusFailed:
-                NSLog(@"============ AVPlayerStatusFailed ============");
-                break;
-            case AVPlayerStatusUnknown:
-                NSLog(@"============ AVPlayerStatusUnknown ============");
-                break;
-            default:
-                break;
+        if ([keyPath isEqualToString:@"currentTime"]) {
+            NSLog(@"============ currentTime:%@ ============",change);
+            if (self.currentTimeBlock) {
+                self.currentTimeBlock(1);
+            }
+        }else {
+            int status = [change[NSKeyValueChangeNewKey] intValue];
+            switch (status) {
+                case AVPlayerStatusReadyToPlay:
+                    [self.mPlayer play];
+                    NSLog(@"============ AVPlayerStatusReadyToPlay ============");
+                    break;
+                case AVPlayerStatusFailed:
+                    NSLog(@"============ AVPlayerStatusFailed ============");
+                    break;
+                case AVPlayerStatusUnknown:
+                    NSLog(@"============ AVPlayerStatusUnknown ============");
+                    break;
+                default:
+                    break;
+            }
         }
         return;
     }
     
     [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-
 }
 
 @end

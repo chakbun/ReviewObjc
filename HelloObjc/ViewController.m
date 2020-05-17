@@ -33,6 +33,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tester = [AVTester new];
+    
+     __weak __typeof(self) weakSelf = self;
+    
+    self.tester.currentTimeBlock = ^(int seconds) {
+        int min = seconds / 60;
+        int second = seconds % 60;
+        [weakSelf.testButton setTitle:[NSString stringWithFormat:@"%02d:%02d",min, second] forState:UIControlStateNormal];
+    };
 }
 
 
