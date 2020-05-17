@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JRPlayerView.h"
 
 @interface ViewController : UIViewController
 
@@ -17,6 +18,8 @@
 @property (assign, nonatomic) int testInt;
 
 @property (strong, nonatomic) NSString *testStr;
+
+@property (weak, nonatomic) IBOutlet JRPlayerView *playerView;
 
 @end
 

@@ -32,6 +32,7 @@
 		DF69ABB9246BE65D008AD35B /* KVOAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = DF69ABB8246BE65D008AD35B /* KVOAddress.m */; };
 		DF69ABBE24701A2D008AD35B /* AVTester.m in Sources */ = {isa = PBXBuildFile; fileRef = DF69ABBD24701A2D008AD35B /* AVTester.m */; };
 		DF69ABC024701BC1008AD35B /* happylover.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DF69ABBF24701BC1008AD35B /* happylover.mp4 */; };
+		DF69ABC32471348D008AD35B /* JRPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF69ABC22471348D008AD35B /* JRPlayerView.m */; };
 		DF755B1D246992DB00F7D1BB /* RunLoopTester.m in Sources */ = {isa = PBXBuildFile; fileRef = DF755B1C246992DB00F7D1BB /* RunLoopTester.m */; };
 		DFB5A14F2441AC1C00611801 /* Department.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB5A1492441AC1C00611801 /* Department.m */; };
 		DFB5A1502441AC1C00611801 /* Department+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB5A14A2441AC1C00611801 /* Department+CoreDataProperties.m */; };
@@ -106,6 +107,8 @@
 		DF69ABBC24701A2D008AD35B /* AVTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVTester.h; sourceTree = "<group>"; };
 		DF69ABBD24701A2D008AD35B /* AVTester.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVTester.m; sourceTree = "<group>"; };
 		DF69ABBF24701BC1008AD35B /* happylover.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = happylover.mp4; sourceTree = "<group>"; };
+		DF69ABC12471348D008AD35B /* JRPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JRPlayerView.h; sourceTree = "<group>"; };
+		DF69ABC22471348D008AD35B /* JRPlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JRPlayerView.m; sourceTree = "<group>"; };
 		DF755B1924682C2900F7D1BB /* DelegateTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DelegateTester.h; sourceTree = "<group>"; };
 		DF755B1B246992DB00F7D1BB /* RunLoopTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RunLoopTester.h; sourceTree = "<group>"; };
 		DF755B1C246992DB00F7D1BB /* RunLoopTester.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunLoopTester.m; sourceTree = "<group>"; };
@@ -311,6 +314,8 @@
 			children = (
 				DF69ABBC24701A2D008AD35B /* AVTester.h */,
 				DF69ABBD24701A2D008AD35B /* AVTester.m */,
+				DF69ABC12471348D008AD35B /* JRPlayerView.h */,
+				DF69ABC22471348D008AD35B /* JRPlayerView.m */,
 			);
 			path = AVFnd;
 			sourceTree = "<group>";
@@ -499,6 +504,7 @@
 				DF69ABB6246BDC42008AD35B /* KVOCard.m in Sources */,
 				DF4A3D842441A32500AC5211 /* CoreDataTester.m in Sources */,
 				DFB5A1522441AC1C00611801 /* Employee+CoreDataProperties.m in Sources */,
+				DF69ABC32471348D008AD35B /* JRPlayerView.m in Sources */,
 				DFB5A1502441AC1C00611801 /* Department+CoreDataProperties.m in Sources */,
 				DF1C5A7724307DFF00EDF4AC /* RuntimeTester.m in Sources */,
 				DFB5A1512441AC1C00611801 /* Employee.m in Sources */,

@@ -7,12 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVKit/AVKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AVTester : NSObject
 
+@property (nonatomic, strong) AVPlayer *mPlayer;
+
 - (id)playerController;
+- (void)loadAVPlayItemWithCompleted:(void(^)(void))completed;
 
 @end
 

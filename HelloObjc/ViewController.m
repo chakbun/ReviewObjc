@@ -41,8 +41,13 @@
 }
 
 - (IBAction)testButtonAction:(id)sender {
-    UIViewController *vc = [self.tester playerController];
-    [self presentViewController:vc animated:YES completion:NULL];
+    
+     __weak __typeof(self) weakSelf = self;
+    [self.tester loadAVPlayItemWithCompleted:^{
+        weakSelf.tester.mPlayer.rate = 1.0;
+        weakSelf.playerView.player = weakSelf.tester.mPlayer;
+    }];
+
 }
 
 @end

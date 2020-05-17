@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +23,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSM-RZ-BEB">
-                                <rect key="frame" x="157" y="253" width="100" height="44"/>
+                                <rect key="frame" x="157" y="344" width="100" height="44"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="4B9-gw-9Rb"/>
@@ -34,18 +34,29 @@
                                     <action selector="testButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="doC-Bt-AjX"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r78-UV-eX2" customClass="JRPlayerView">
+                                <rect key="frame" x="47" y="84" width="320" height="240"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="eWP-0T-XeV"/>
+                                    <constraint firstAttribute="width" constant="320" id="fKT-Np-aza"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="iSn-rW-AFG" firstAttribute="top" secondItem="aSM-RZ-BEB" secondAttribute="bottom" constant="106" id="4YZ-Ay-lS5"/>
+                            <constraint firstItem="aSM-RZ-BEB" firstAttribute="top" secondItem="r78-UV-eX2" secondAttribute="bottom" constant="20" id="5Iq-xE-Jm8"/>
+                            <constraint firstItem="r78-UV-eX2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Bgg-yj-64v"/>
                             <constraint firstItem="iSn-rW-AFG" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="MXL-Wc-i6a"/>
                             <constraint firstItem="aSM-RZ-BEB" firstAttribute="centerX" secondItem="iSn-rW-AFG" secondAttribute="centerX" id="XqB-EJ-rPX"/>
+                            <constraint firstItem="r78-UV-eX2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="gqv-Xh-909"/>
                             <constraint firstItem="iSn-rW-AFG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="moE-yb-Vh7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="iconImageView" destination="iSn-rW-AFG" id="sJA-5E-1ma"/>
+                        <outlet property="playerView" destination="r78-UV-eX2" id="9Wm-nY-uZb"/>
                         <outlet property="testButton" destination="aSM-RZ-BEB" id="RhR-Dm-G5J"/>
                     </connections>
                 </viewController>

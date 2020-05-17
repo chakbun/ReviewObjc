@@ -7,14 +7,15 @@
 //
 
 #import "AVTester.h"
-#import <AVKit/AVKit.h>
 
 static const NSString *ItemStatusContext;
+static const NSString *PlayerStatusContext;
 
 @interface AVTester ()
 
-@property (nonatomic, strong) AVPlayer *mPlayer;
 @property (nonatomic, strong) AVPlayerItem *playerItem;
+
+@property (nonatomic, strong) AVPlayerViewController *playerVC;
 @end
 
 @implementation AVTester
@@ -24,7 +25,7 @@ static const NSString *ItemStatusContext;
     [self.mPlayer removeTimeObserver:self];
 }
 
-- (void)loadAVPlayItem {
+- (void)loadAVPlayItemWithCompleted:(void(^)(void))completed {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"happylover" ofType:@"mp4"];
     AVURLAsset *avsert = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:path]];
     NSString *tracksKey = @"tracks";
@@ -39,7 +40,14 @@ static const NSString *ItemStatusContext;
             weakSelf.playerItem = [AVPlayerItem playerItemWithAsset:avsert];
              // ensure that this is done before the playerItem is associated with the player
             [weakSelf.playerItem addObserver:weakSelf forKeyPath:@"status"
-                        options:NSKeyValueObservingOptionInitial context:&ItemStatusContext];
+                        options:NSKeyValueObservingOptionNew context:&ItemStatusContext];
+            
+            weakSelf.mPlayer = [[AVPlayer alloc] initWithPlayerItem:weakSelf.playerItem];
+            [weakSelf.mPlayer addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:&PlayerStatusContext];
+            if([weakSelf.playerItem canPlayFastForward]) {
+                weakSelf.mPlayer.rate = 2.0;
+            }
+            completed();
         }
         else {
             // You should deal with the error appropriately.
@@ -48,24 +56,24 @@ static const NSString *ItemStatusContext;
     }];
 }
 
-- (AVPlayer *)mPlayer {
-    if (!_mPlayer) {
-        
-        
-//        AVPlayerItem *item = [[AVPlayerItem alloc] initWithURL:[NSURL fileURLWithPath:path]];
-//        _mPlayer = [[AVPlayer alloc] initWithPlayerItem:item];
-//        _mPlayer = [[AVPlayer alloc] initWithURL:[NSURL fileURLWithPath:path]];
-        
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didPlay2EndTime:) name:AVPlayerItemDidPlayToEndTimeNotification object:NULL];
-        
-//        [_mPlayer addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:NULL];
-        
-//        [self addObserver2Player:_mPlayer inTimes:@[@3, @9, @12]];
-//        [self addObserver2Player:_mPlayer perSeconds:3];
-        
-    }
-    return _mPlayer;
-}
+//- (AVPlayer *)mPlayer {
+//    if (!_mPlayer) {
+//
+//
+////        AVPlayerItem *item = [[AVPlayerItem alloc] initWithURL:[NSURL fileURLWithPath:path]];
+////        _mPlayer = [[AVPlayer alloc] initWithPlayerItem:item];
+////        _mPlayer = [[AVPlayer alloc] initWithURL:[NSURL fileURLWithPath:path]];
+//
+////        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didPlay2EndTime:) name:AVPlayerItemDidPlayToEndTimeNotification object:NULL];
+//
+////        [_mPlayer addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:&PlayerStatusContext];
+//
+////        [self addObserver2Player:_mPlayer inTimes:@[@3, @9, @12]];
+////        [self addObserver2Player:_mPlayer perSeconds:3];
+//
+//    }
+//    return _mPlayer;
+//}
 
 - (void)didPlay2EndTime:(NSNotification *)notify {
     NSLog(@"============ end!!! ============");
@@ -92,26 +100,48 @@ static const NSString *ItemStatusContext;
 }
 
 - (id)playerController {
-    AVPlayerViewController *vc = [AVPlayerViewController new];
+    if (!self.playerVC) {
+        self.playerVC = [AVPlayerViewController new];
+    }
     
-    
-    vc.player = self.mPlayer;
-    return vc;
+    __weak __typeof(self) weakSelf = self;
+    [self loadAVPlayItemWithCompleted:^{
+        weakSelf.playerVC.player = weakSelf.mPlayer;
+    }];
+    return self.playerVC;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     
     if (context == &ItemStatusContext) {
+        int status = [change[NSKeyValueChangeNewKey] intValue];
+        switch (status) {
+            case AVPlayerItemStatusReadyToPlay: {
+                NSLog(@"============ AVPlayerItemStatusReadyToPlay ============");
+                break;
+            }
+            case AVPlayerItemStatusFailed:
+                NSLog(@"============ AVPlayerItemStatusFailed ============");
+                break;
+            case AVPlayerItemStatusUnknown:
+                NSLog(@"============ AVPlayerItemStatusUnknown ============");
+                break;
+            default:
+                break;
+        }
         return;
-    }else {
+    }else if(context == &PlayerStatusContext){
         int status = [change[NSKeyValueChangeNewKey] intValue];
         switch (status) {
             case AVPlayerStatusReadyToPlay:
                 [self.mPlayer play];
+                NSLog(@"============ AVPlayerStatusReadyToPlay ============");
                 break;
             case AVPlayerStatusFailed:
+                NSLog(@"============ AVPlayerStatusFailed ============");
                 break;
             case AVPlayerStatusUnknown:
+                NSLog(@"============ AVPlayerStatusUnknown ============");
                 break;
             default:
                 break;
@@ -119,6 +149,7 @@ static const NSString *ItemStatusContext;
         return;
     }
     
+    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 
 }
 
