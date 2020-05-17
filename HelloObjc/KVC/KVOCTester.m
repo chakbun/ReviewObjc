@@ -57,7 +57,6 @@
     NSLog(@"keyPath: %@", keyPath);
     NSLog(@"object: %@", object);
     NSLog(@"change: %@", change);
-
 }
 
 @end

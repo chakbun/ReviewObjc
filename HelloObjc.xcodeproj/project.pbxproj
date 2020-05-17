@@ -30,6 +30,8 @@
 		DF69ABB3246BDB6A008AD35B /* KVOPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = DF69ABB2246BDB6A008AD35B /* KVOPerson.m */; };
 		DF69ABB6246BDC42008AD35B /* KVOCard.m in Sources */ = {isa = PBXBuildFile; fileRef = DF69ABB5246BDC42008AD35B /* KVOCard.m */; };
 		DF69ABB9246BE65D008AD35B /* KVOAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = DF69ABB8246BE65D008AD35B /* KVOAddress.m */; };
+		DF69ABBE24701A2D008AD35B /* AVTester.m in Sources */ = {isa = PBXBuildFile; fileRef = DF69ABBD24701A2D008AD35B /* AVTester.m */; };
+		DF69ABC024701BC1008AD35B /* happylover.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DF69ABBF24701BC1008AD35B /* happylover.mp4 */; };
 		DF755B1D246992DB00F7D1BB /* RunLoopTester.m in Sources */ = {isa = PBXBuildFile; fileRef = DF755B1C246992DB00F7D1BB /* RunLoopTester.m */; };
 		DFB5A14F2441AC1C00611801 /* Department.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB5A1492441AC1C00611801 /* Department.m */; };
 		DFB5A1502441AC1C00611801 /* Department+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB5A14A2441AC1C00611801 /* Department+CoreDataProperties.m */; };
@@ -101,6 +103,9 @@
 		DF69ABB5246BDC42008AD35B /* KVOCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KVOCard.m; sourceTree = "<group>"; };
 		DF69ABB7246BE65D008AD35B /* KVOAddress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KVOAddress.h; sourceTree = "<group>"; };
 		DF69ABB8246BE65D008AD35B /* KVOAddress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KVOAddress.m; sourceTree = "<group>"; };
+		DF69ABBC24701A2D008AD35B /* AVTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVTester.h; sourceTree = "<group>"; };
+		DF69ABBD24701A2D008AD35B /* AVTester.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVTester.m; sourceTree = "<group>"; };
+		DF69ABBF24701BC1008AD35B /* happylover.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = happylover.mp4; sourceTree = "<group>"; };
 		DF755B1924682C2900F7D1BB /* DelegateTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DelegateTester.h; sourceTree = "<group>"; };
 		DF755B1B246992DB00F7D1BB /* RunLoopTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RunLoopTester.h; sourceTree = "<group>"; };
 		DF755B1C246992DB00F7D1BB /* RunLoopTester.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunLoopTester.m; sourceTree = "<group>"; };
@@ -172,12 +177,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		DF1C5A88243B0CEF00EDF4AC /* Resouces */ = {
+		DF1C5A88243B0CEF00EDF4AC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DF69ABBF24701BC1008AD35B /* happylover.mp4 */,
 				DF1C5A89243B0CFA00EDF4AC /* plist */,
 			);
-			path = Resouces;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		DF1C5A89243B0CFA00EDF4AC /* plist */ = {
@@ -238,12 +244,13 @@
 		DF56986A23EEEFDB00E8D971 /* HelloObjc */ = {
 			isa = PBXGroup;
 			children = (
+				DF69ABBA247016B3008AD35B /* AVFnd */,
 				DF69ABAD246BDAB1008AD35B /* KVC */,
 				DF755B1A2469917B00F7D1BB /* RunLoop */,
 				DFB5A15324434DE000611801 /* Network */,
 				DF4A3D7224419F3D00AC5211 /* coredata */,
 				DF1C5A8D243B0D5800EDF4AC /* File */,
-				DF1C5A88243B0CEF00EDF4AC /* Resouces */,
+				DF1C5A88243B0CEF00EDF4AC /* Resources */,
 				DF1C5A7C2437765400EDF4AC /* View */,
 				DF1C5A782434E60D00EDF4AC /* Copy */,
 				DF1C5A7424307DDC00EDF4AC /* Runtime */,
@@ -297,6 +304,15 @@
 				DF69ABB8246BE65D008AD35B /* KVOAddress.m */,
 			);
 			path = KVC;
+			sourceTree = "<group>";
+		};
+		DF69ABBA247016B3008AD35B /* AVFnd */ = {
+			isa = PBXGroup;
+			children = (
+				DF69ABBC24701A2D008AD35B /* AVTester.h */,
+				DF69ABBD24701A2D008AD35B /* AVTester.m */,
+			);
+			path = AVFnd;
 			sourceTree = "<group>";
 		};
 		DF755B1A2469917B00F7D1BB /* RunLoop */ = {
@@ -442,6 +458,7 @@
 				DF56987B23EEEFE300E8D971 /* LaunchScreen.storyboard in Resources */,
 				DF1C5A92243B0D9600EDF4AC /* Settings.plist in Resources */,
 				DF56987823EEEFE300E8D971 /* Assets.xcassets in Resources */,
+				DF69ABC024701BC1008AD35B /* happylover.mp4 in Resources */,
 				DF56987623EEEFDB00E8D971 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,6 +508,7 @@
 				DF1C5A872438AED600EDF4AC /* UIButton+JRAdditions.m in Sources */,
 				DF4A3D7524419F6200AC5211 /* Company.xcdatamodeld in Sources */,
 				DF5DF3E223FFC37100EB4FB5 /* JRSingleton.m in Sources */,
+				DF69ABBE24701A2D008AD35B /* AVTester.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

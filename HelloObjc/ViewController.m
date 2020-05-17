@@ -20,36 +20,29 @@
 #import "NetworkTester.h"
 #import "RunLoopTester.h"
 #import "KVOCTester.h"
+#import "AVTester.h"
 
-@interface ViewController ()<DelegateTester>
+@interface ViewController ()
 
-@property (nonatomic, strong) NSMutableString *name;
-
-@property (nonatomic, strong) KVOCTester *tester;
+@property (nonatomic, strong) AVTester *tester;
 
 @end
 
 @implementation ViewController
-@synthesize delegateName;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tester = [KVOCTester new];
-    [self.tester kvcTesting];
+    self.tester = [AVTester new];
 }
 
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self.tester kvoTesting];
+    
 }
 
 - (IBAction)testButtonAction:(id)sender {
-    [self.tester cleanObserver];
-}
-
-#pragma mark - DelegateTester
-- (NSInteger)count4Names {
-    return 10;
+    UIViewController *vc = [self.tester playerController];
+    [self presentViewController:vc animated:YES completion:NULL];
 }
 
 @end
