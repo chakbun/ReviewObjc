@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IZB-zm-vVN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -16,26 +16,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconYellow" translatesAutoresizingMaskIntoConstraints="NO" id="iSn-rW-AFG">
-                                <rect key="frame" x="157" y="403" width="100" height="100"/>
+                                <rect key="frame" x="157" y="485" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="m77-vd-a0A"/>
                                     <constraint firstAttribute="width" secondItem="iSn-rW-AFG" secondAttribute="height" multiplier="1:1" id="shd-4G-VJA"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSM-RZ-BEB">
-                                <rect key="frame" x="157" y="344" width="100" height="44"/>
+                                <rect key="frame" x="157" y="388" width="100" height="44"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="4B9-gw-9Rb"/>
-                                    <constraint firstAttribute="width" constant="100" id="a6a-P7-ELy"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="a6a-P7-ELy"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="testButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="doC-Bt-AjX"/>
+                                    <segue destination="yZI-NC-Ih9" kind="show" id="Ks2-BY-DGI"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r78-UV-eX2" customClass="JRPlayerView">
-                                <rect key="frame" x="47" y="84" width="320" height="240"/>
+                                <rect key="frame" x="47" y="128" width="320" height="240"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="eWP-0T-XeV"/>
@@ -47,13 +48,14 @@
                         <constraints>
                             <constraint firstItem="aSM-RZ-BEB" firstAttribute="top" secondItem="r78-UV-eX2" secondAttribute="bottom" constant="20" id="5Iq-xE-Jm8"/>
                             <constraint firstItem="r78-UV-eX2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Bgg-yj-64v"/>
-                            <constraint firstItem="iSn-rW-AFG" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="MXL-Wc-i6a"/>
+                            <constraint firstItem="iSn-rW-AFG" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="60" id="MXL-Wc-i6a"/>
                             <constraint firstItem="aSM-RZ-BEB" firstAttribute="centerX" secondItem="iSn-rW-AFG" secondAttribute="centerX" id="XqB-EJ-rPX"/>
                             <constraint firstItem="r78-UV-eX2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="gqv-Xh-909"/>
                             <constraint firstItem="iSn-rW-AFG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="moE-yb-Vh7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="8Nw-9n-UmE"/>
                     <connections>
                         <outlet property="iconImageView" destination="iSn-rW-AFG" id="sJA-5E-1ma"/>
                         <outlet property="playerView" destination="r78-UV-eX2" id="9Wm-nY-uZb"/>
@@ -63,6 +65,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="128.57142857142856"/>
+        </scene>
+        <!--Test Web View Controller-->
+        <scene sceneID="Yza-Mc-hp4">
+            <objects>
+                <viewController id="yZI-NC-Ih9" customClass="TestWebViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uml-XD-S32">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GbU-1l-Lmq">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="GbU-1l-Lmq" firstAttribute="leading" secondItem="PEJ-gh-6Sm" secondAttribute="leading" id="1jX-ek-wC9"/>
+                            <constraint firstItem="GbU-1l-Lmq" firstAttribute="trailing" secondItem="PEJ-gh-6Sm" secondAttribute="trailing" id="eZD-mm-0Jy"/>
+                            <constraint firstItem="GbU-1l-Lmq" firstAttribute="top" secondItem="PEJ-gh-6Sm" secondAttribute="top" id="kMq-sN-Xqa"/>
+                            <constraint firstItem="PEJ-gh-6Sm" firstAttribute="bottom" secondItem="GbU-1l-Lmq" secondAttribute="bottom" id="pem-ZH-jN2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PEJ-gh-6Sm"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="oxW-1w-OAl"/>
+                    <connections>
+                        <outlet property="mainWebView" destination="GbU-1l-Lmq" id="GiZ-iL-JJI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fVs-fJ-0Gh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="950.72463768115949" y="138.61607142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fAe-NX-CUe">
+            <objects>
+                <navigationController id="IZB-zm-vVN" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HS8-GX-V5r">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="HOS-8E-n8Z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="67E-pX-AYS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-732" y="129"/>
         </scene>
     </scenes>
     <resources>

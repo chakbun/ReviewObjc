@@ -33,6 +33,11 @@
 		DF69ABBE24701A2D008AD35B /* AVTester.m in Sources */ = {isa = PBXBuildFile; fileRef = DF69ABBD24701A2D008AD35B /* AVTester.m */; };
 		DF69ABC024701BC1008AD35B /* happylover.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DF69ABBF24701BC1008AD35B /* happylover.mp4 */; };
 		DF69ABC32471348D008AD35B /* JRPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF69ABC22471348D008AD35B /* JRPlayerView.m */; };
+		DF69ABCA24757634008AD35B /* TestWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF69ABC924757634008AD35B /* TestWebViewController.m */; };
+		DF69ABCC2475779C008AD35B /* web.html in Resources */ = {isa = PBXBuildFile; fileRef = DF69ABCB2475779C008AD35B /* web.html */; };
+		DF69ABCF24757A01008AD35B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF69ABCE24757A01008AD35B /* WebKit.framework */; };
+		DF69ABD32476B1EF008AD35B /* KeyCommandManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DF69ABD22476B1EF008AD35B /* KeyCommandManager.m */; };
+		DF69ABD72476BE9C008AD35B /* ProtocolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DF69ABD62476BE9C008AD35B /* ProtocolManager.m */; };
 		DF755B1D246992DB00F7D1BB /* RunLoopTester.m in Sources */ = {isa = PBXBuildFile; fileRef = DF755B1C246992DB00F7D1BB /* RunLoopTester.m */; };
 		DFB5A14F2441AC1C00611801 /* Department.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB5A1492441AC1C00611801 /* Department.m */; };
 		DFB5A1502441AC1C00611801 /* Department+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB5A14A2441AC1C00611801 /* Department+CoreDataProperties.m */; };
@@ -109,6 +114,15 @@
 		DF69ABBF24701BC1008AD35B /* happylover.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = happylover.mp4; sourceTree = "<group>"; };
 		DF69ABC12471348D008AD35B /* JRPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JRPlayerView.h; sourceTree = "<group>"; };
 		DF69ABC22471348D008AD35B /* JRPlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JRPlayerView.m; sourceTree = "<group>"; };
+		DF69ABC824757634008AD35B /* TestWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestWebViewController.h; sourceTree = "<group>"; };
+		DF69ABC924757634008AD35B /* TestWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestWebViewController.m; sourceTree = "<group>"; };
+		DF69ABCB2475779C008AD35B /* web.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = web.html; sourceTree = "<group>"; };
+		DF69ABCE24757A01008AD35B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		DF69ABD12476B1EF008AD35B /* KeyCommandManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyCommandManager.h; sourceTree = "<group>"; };
+		DF69ABD22476B1EF008AD35B /* KeyCommandManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyCommandManager.m; sourceTree = "<group>"; };
+		DF69ABD42476B23E008AD35B /* KeyCommandProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyCommandProtocol.h; sourceTree = "<group>"; };
+		DF69ABD52476BE9C008AD35B /* ProtocolManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProtocolManager.h; sourceTree = "<group>"; };
+		DF69ABD62476BE9C008AD35B /* ProtocolManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProtocolManager.m; sourceTree = "<group>"; };
 		DF755B1924682C2900F7D1BB /* DelegateTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DelegateTester.h; sourceTree = "<group>"; };
 		DF755B1B246992DB00F7D1BB /* RunLoopTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RunLoopTester.h; sourceTree = "<group>"; };
 		DF755B1C246992DB00F7D1BB /* RunLoopTester.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunLoopTester.m; sourceTree = "<group>"; };
@@ -131,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF69ABCF24757A01008AD35B /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +246,7 @@
 				DF56988623EEEFE400E8D971 /* HelloObjcTests */,
 				DF56989123EEEFE400E8D971 /* HelloObjcUITests */,
 				DF56986923EEEFDB00E8D971 /* Products */,
+				DF69ABCD24757A01008AD35B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -247,6 +263,8 @@
 		DF56986A23EEEFDB00E8D971 /* HelloObjc */ = {
 			isa = PBXGroup;
 			children = (
+				DF69ABD02476B1BC008AD35B /* Protocol */,
+				DF69ABC424757222008AD35B /* WebView */,
 				DF69ABBA247016B3008AD35B /* AVFnd */,
 				DF69ABAD246BDAB1008AD35B /* KVC */,
 				DF755B1A2469917B00F7D1BB /* RunLoop */,
@@ -318,6 +336,36 @@
 				DF69ABC22471348D008AD35B /* JRPlayerView.m */,
 			);
 			path = AVFnd;
+			sourceTree = "<group>";
+		};
+		DF69ABC424757222008AD35B /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				DF69ABC824757634008AD35B /* TestWebViewController.h */,
+				DF69ABC924757634008AD35B /* TestWebViewController.m */,
+				DF69ABCB2475779C008AD35B /* web.html */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		DF69ABCD24757A01008AD35B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DF69ABCE24757A01008AD35B /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DF69ABD02476B1BC008AD35B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				DF69ABD12476B1EF008AD35B /* KeyCommandManager.h */,
+				DF69ABD22476B1EF008AD35B /* KeyCommandManager.m */,
+				DF69ABD42476B23E008AD35B /* KeyCommandProtocol.h */,
+				DF69ABD52476BE9C008AD35B /* ProtocolManager.h */,
+				DF69ABD62476BE9C008AD35B /* ProtocolManager.m */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		DF755B1A2469917B00F7D1BB /* RunLoop */ = {
@@ -465,6 +513,7 @@
 				DF56987823EEEFE300E8D971 /* Assets.xcassets in Resources */,
 				DF69ABC024701BC1008AD35B /* happylover.mp4 in Resources */,
 				DF56987623EEEFDB00E8D971 /* Main.storyboard in Resources */,
+				DF69ABCC2475779C008AD35B /* web.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,11 +549,14 @@
 				DF69ABB3246BDB6A008AD35B /* KVOPerson.m in Sources */,
 				DF56987E23EEEFE300E8D971 /* main.m in Sources */,
 				DF5698A223EEF3C700E8D971 /* SecViewController.m in Sources */,
+				DF69ABD72476BE9C008AD35B /* ProtocolManager.m in Sources */,
 				DF69ABB0246BDADD008AD35B /* KVOCTester.m in Sources */,
 				DF69ABB6246BDC42008AD35B /* KVOCard.m in Sources */,
 				DF4A3D842441A32500AC5211 /* CoreDataTester.m in Sources */,
+				DF69ABCA24757634008AD35B /* TestWebViewController.m in Sources */,
 				DFB5A1522441AC1C00611801 /* Employee+CoreDataProperties.m in Sources */,
 				DF69ABC32471348D008AD35B /* JRPlayerView.m in Sources */,
+				DF69ABD32476B1EF008AD35B /* KeyCommandManager.m in Sources */,
 				DFB5A1502441AC1C00611801 /* Department+CoreDataProperties.m in Sources */,
 				DF1C5A7724307DFF00EDF4AC /* RuntimeTester.m in Sources */,
 				DFB5A1512441AC1C00611801 /* Employee.m in Sources */,

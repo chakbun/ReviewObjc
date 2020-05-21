@@ -32,15 +32,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tester = [AVTester new];
-    
-     __weak __typeof(self) weakSelf = self;
-    
-    self.tester.currentTimeBlock = ^(int seconds) {
-        int min = seconds / 60;
-        int second = seconds % 60;
-        [weakSelf.testButton setTitle:[NSString stringWithFormat:@"%02d:%02d",min, second] forState:UIControlStateNormal];
-    };
+
 }
 
 
@@ -50,12 +42,32 @@
 
 - (IBAction)testButtonAction:(id)sender {
     
-     __weak __typeof(self) weakSelf = self;
-    [self.tester loadAVPlayItemWithCompleted:^(int seconds){
-        weakSelf.playerView.player = weakSelf.tester.mPlayer;
-        NSLog(@"time=>%i:%i", seconds/60, seconds%60);
-    }];
+    SEL targetSelector = NSSelectorFromString(@"valueAtKey:");
+    NSMethodSignature *methodSig = [self methodSignatureForSelector:targetSelector];
+    
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
+    invocation.selector = targetSelector;
+    NSString *key = @"name";
+    [invocation setArgument:&key atIndex:2];
+    [invocation invokeWithTarget:self];
+    
+    if (methodSig.methodReturnLength > 0) {
+        NSLog(@" return type = %s", methodSig.methodReturnType);
+        NSString *result = nil;
+        [invocation getReturnValue:&result];
+        if (result) {
+            NSLog(@"============ return:%@ ============", result);
 
+        }
+    }
+
+
+}
+
+- (NSString *)valueAtKey:(NSString *)key {
+    NSLog(@"============ method invoked ============");
+    NSDictionary<NSString *, NSString *> *temp = @{@"name": @"Zach", @"title": @"developer"};
+    return temp[key];
 }
 
 @end

@@ -164,4 +164,23 @@ static const NSString *PlayerStatusContext;
     [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
 
+- (void)listInputDevices {
+    
+    AVCaptureDeviceDiscoverySession *s = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:@[AVCaptureDeviceTypeBuiltInMicrophone, AVCaptureDeviceTypeBuiltInDualCamera] mediaType:nil position:AVCaptureDevicePositionUnspecified];
+     
+    for (AVCaptureDevice *device in s.devices) {
+     
+        NSLog(@"Device name: %@", [device localizedName]);
+     
+        if ([device hasMediaType:AVMediaTypeVideo]) {
+     
+            if ([device position] == AVCaptureDevicePositionBack) {
+                NSLog(@"Device position : back");
+            }
+            else {
+                NSLog(@"Device position : front");
+            }
+        }
+    }
+}
 @end

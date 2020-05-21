@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (id)playerController;
 - (void)loadAVPlayItemWithCompleted:(void(^)(int seconds))completed;
-
+- (void)listInputDevices;
 @end
 
 NS_ASSUME_NONNULL_END
