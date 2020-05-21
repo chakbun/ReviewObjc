@@ -21,6 +21,8 @@
 #import "RunLoopTester.h"
 #import "KVOCTester.h"
 #import "AVTester.h"
+#import "ProtocolManager.h"
+#import "KeyCommandProtocol.h"
 
 @interface ViewController ()
 
@@ -41,7 +43,22 @@
 }
 
 - (IBAction)testButtonAction:(id)sender {
+    NSArray *arr = @[@16, @18, @22, @67];
     
+    id<KeyCommandProtocol> protcol = [[ProtocolManager shareManager] protocolWithName:@"KeyCommandProtocol"];
+    
+    float result = [protcol avgInArray:arr];
+    
+    NSLog(@"============ result : %f ============", result);
+}
+
+- (NSString *)valueAtKey:(NSString *)key {
+    NSLog(@"============ method invoked ============");
+    NSDictionary<NSString *, NSString *> *temp = @{@"name": @"Zach", @"title": @"developer"};
+    return temp[key];
+}
+
+- (void)invokeTesting {
     SEL targetSelector = NSSelectorFromString(@"valueAtKey:");
     NSMethodSignature *methodSig = [self methodSignatureForSelector:targetSelector];
     
@@ -60,14 +77,6 @@
 
         }
     }
-
-
-}
-
-- (NSString *)valueAtKey:(NSString *)key {
-    NSLog(@"============ method invoked ============");
-    NSDictionary<NSString *, NSString *> *temp = @{@"name": @"Zach", @"title": @"developer"};
-    return temp[key];
 }
 
 @end

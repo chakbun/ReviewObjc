@@ -8,6 +8,7 @@
 
 #import "KeyCommandManager.h"
 #import "KeyCommandProtocol.h"
+#import "ProtocolManager.h"
 
 @interface KeyCommandManager ()<KeyCommandProtocol>
 
@@ -18,20 +19,24 @@
 
 @synthesize keyName;
 
++ (void)load {
+    NSLog(@"============ KeyCommandManager LOAD ============");
+    [[ProtocolManager shareManager] addProtocol:[self class] withProtocolName:@"KeyCommandProtocol"];
+}
+
 + (instancetype)shareManager {
     static KeyCommandManager *manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         manager = [[KeyCommandManager alloc] init];
-        
     });
     
     return manager;
 }
 
 - (float)keyCalculationAction:(NSArray<NSNumber *> *)arr {
-    float total = [[arr valueForKeyPath:@"@avg"] floatValue];
-    return total;
+    float avg = [[arr valueForKeyPath:@"@avg.floatValue"] floatValue];
+    return avg;
 }
 
 - (NSDictionary *)keyCommandList {

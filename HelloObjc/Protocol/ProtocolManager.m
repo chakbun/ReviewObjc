@@ -35,8 +35,11 @@
 }
 
 - (void)addProtocol:(id)protocol withProtocolName:(NSString *)name {
+    
+    id inst = [protocol new];
+    
     [self.protocolLock lock];
-    self.protocolDictionary[name] = protocol;
+    self.protocolDictionary[name] = inst;
     [self.protocolLock unlock];
 }
 
