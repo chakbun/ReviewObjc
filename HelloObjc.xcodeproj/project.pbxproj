@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00314CFE26E06B2B001CA082 /* SortingLearning.m in Sources */ = {isa = PBXBuildFile; fileRef = 00314CFD26E06B2B001CA082 /* SortingLearning.m */; };
 		DF1C5A7724307DFF00EDF4AC /* RuntimeTester.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1C5A7624307DFF00EDF4AC /* RuntimeTester.m */; };
 		DF1C5A7B2434E73A00EDF4AC /* CopyTester.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1C5A7A2434E73A00EDF4AC /* CopyTester.m */; };
 		DF1C5A842437778200EDF4AC /* UIImageView+JRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1C5A832437778200EDF4AC /* UIImageView+JRAdditions.m */; };
@@ -65,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00314CFC26E06B2B001CA082 /* SortingLearning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SortingLearning.h; sourceTree = "<group>"; };
+		00314CFD26E06B2B001CA082 /* SortingLearning.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SortingLearning.m; sourceTree = "<group>"; };
 		DF1C5A7524307DFF00EDF4AC /* RuntimeTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeTester.h; sourceTree = "<group>"; };
 		DF1C5A7624307DFF00EDF4AC /* RuntimeTester.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeTester.m; sourceTree = "<group>"; };
 		DF1C5A792434E73A00EDF4AC /* CopyTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CopyTester.h; sourceTree = "<group>"; };
@@ -166,6 +169,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00314CFB26E06B10001CA082 /* Aglorithem */ = {
+			isa = PBXGroup;
+			children = (
+				00314CFC26E06B2B001CA082 /* SortingLearning.h */,
+				00314CFD26E06B2B001CA082 /* SortingLearning.m */,
+			);
+			path = Aglorithem;
+			sourceTree = "<group>";
+		};
 		DF1C5A7424307DDC00EDF4AC /* Runtime */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +275,7 @@
 		DF56986A23EEEFDB00E8D971 /* HelloObjc */ = {
 			isa = PBXGroup;
 			children = (
+				00314CFB26E06B10001CA082 /* Aglorithem */,
 				DF69ABD02476B1BC008AD35B /* Protocol */,
 				DF69ABC424757222008AD35B /* WebView */,
 				DF69ABBA247016B3008AD35B /* AVFnd */,
@@ -544,6 +557,7 @@
 				DF1C5A90243B0D8100EDF4AC /* JRPerferenceManager.m in Sources */,
 				DFBE80DB242893F80004FA0B /* MultipleThreadController.m in Sources */,
 				DF69ABB9246BE65D008AD35B /* KVOAddress.m in Sources */,
+				00314CFE26E06B2B001CA082 /* SortingLearning.m in Sources */,
 				DF56986D23EEEFDB00E8D971 /* AppDelegate.m in Sources */,
 				DF1C5A842437778200EDF4AC /* UIImageView+JRAdditions.m in Sources */,
 				DF69ABB3246BDB6A008AD35B /* KVOPerson.m in Sources */,
