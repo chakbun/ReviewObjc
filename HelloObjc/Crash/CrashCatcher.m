@@ -12,47 +12,41 @@
 #include <execinfo.h>
 #import <UIKit/UIKit.h>
 
-const NSInteger UncaughtExceptionHandlerReportAddressCount = 20;//指明获取多少条调用堆栈信息
-NSUncaughtExceptionHandler *OldHandler = nil;
-//void (*OldAbrtSignalHandler)(int, struct __siginfo *, void *);
+const NSInteger handleExceptionBacktraceFramesCount = 20;
+NSString * const handleExceptionSignalExceptionName = @"handleExceptionSignalExceptionName";
+NSString * const handleExceptionSignalKey = @"handleExceptionSignalKey";
+NSString * const handleExceptionAddressesKey = @"handleExceptionAddressesKey";
 
-NSString * const UncaughtExceptionHandlerSignalExceptionName = @"UncaughtExceptionHandlerSignalExceptionName";
-NSString * const UncaughtExceptionHandlerSignalKey = @"UncaughtExceptionHandlerSignalKey";
-NSString * const UncaughtExceptionHandlerAddressesKey = @"UncaughtExceptionHandlerAddressesKey";
-
-static void UncaughtExceptionHandler(NSException * exception) {
-    NSArray * arr = [exception callStackSymbols];
-    NSString * reason = [exception reason]; // // 崩溃的原因  可以有崩溃的原因(数组越界,字典nil,调用未知方法...) 崩溃的控制器以及方法
-    NSString * name = [exception name];
-    NSLog(@"crash exception:\nname:%@\nreason:\n%@\ncallStackSymbols:\n%@",name,reason,[arr componentsJoinedByString:@"\n"]);
+static void exceptionCausedCrashHandler(NSException * exception) {
+    NSArray *arr = [exception callStackSymbols];
+    NSString *reason = [exception reason];
+    NSString *name = [exception name];
+    [[[CrashCatcher alloc] init] performSelector:@selector(handleException:) withObject:exception];
 }
 
-static void UncaughtSinal(int signal) {
-    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObject:[NSNumber numberWithInt:signal] forKey:@"UncaughtExceptionHandlerSignalKey"];
+static void signalCausedCrashHandler(int signal) {
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObject:[NSNumber numberWithInt:signal] forKey:handleExceptionSignalKey];
     
-    void *callStack[128];//堆栈方法数组
-    int frames = backtrace(callStack, 128);//获取错误堆栈方法指针数组，返回数目
-    NSLog(@"[UncaughtSinal]frames = %i", frames);
-    char **strs = backtrace_symbols(callStack, frames);//符号化
+    void *callStack[128];
+    int frames = backtrace(callStack, 128);
+    char **strs = backtrace_symbols(callStack, frames);
     
     NSMutableArray *symbolsBackTrace=[NSMutableArray arrayWithCapacity:frames];
     
-    unsigned long count = UncaughtExceptionHandlerReportAddressCount < frames ? UncaughtExceptionHandlerReportAddressCount : frames;
-    NSLog(@"[UncaughtSinal]count = %li", count);
+    unsigned long count = handleExceptionBacktraceFramesCount < frames ? handleExceptionBacktraceFramesCount : frames;
     for (int i = 0; i < count; i++) {
         [symbolsBackTrace addObject:[NSString stringWithUTF8String:strs[i]]];
-        NSLog(@"[UncaughtSinal]symbolsBackTrace = %@", symbolsBackTrace);
     }
     free(strs);
     
-    [userInfo setObject:symbolsBackTrace forKey:@"UncaughtExceptionHandlerAddressesKey"];
+    [userInfo setObject:symbolsBackTrace forKey:handleExceptionAddressesKey];
     
-    NSException *signalException = [NSException exceptionWithName:@"UncaughtExceptionHandlerSignalExceptionName" reason:[NSString stringWithFormat:@"Signal %d was raised.",signal] userInfo:userInfo];
+    NSException *signalException = [NSException exceptionWithName:handleExceptionSignalExceptionName reason:[NSString stringWithFormat:@"Signal %d was raised.",signal] userInfo:userInfo];
     
-    NSLog(@"[UncaughtSinal]signal exception:%@",signalException);
+    [[[CrashCatcher alloc] init] performSelector:@selector(handleException:) withObject:signalException];
 }
 
-//static void UncaughtSinal(int crashSignal, struct __siginfo *info, void *context) {
+//static void signalCausedCrashHandler(int crashSignal, struct __siginfo *info, void *context) {
 //
 //    static volatile int32_t UncaughtExceptionCount = 0;
 //    static const int32_t UncaughtExceptionMaximum = 10;
@@ -78,6 +72,12 @@ static void UncaughtSinal(int signal) {
 //    }
 //}
 
+@interface CrashCatcher ()
+
+@property (nonatomic, assign) BOOL dismissed;
+
+@end
+
 
 @implementation CrashCatcher
 
@@ -92,8 +92,7 @@ static void UncaughtSinal(int signal) {
 }
 
 - (void)setDefaultHandler {
-    NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
-    
+    NSSetUncaughtExceptionHandler(&exceptionCausedCrashHandler);
     
 //    struct sigaction action;
 //    sigemptyset(&action.sa_mask);
@@ -103,10 +102,9 @@ static void UncaughtSinal(int signal) {
     for (int i = 0; i < sizeof(signals) / sizeof(int); i++) {
 //        struct sigaction prev_action;
 //        int err = sigaction(signals[i], &action, &prev_action);
-        signal(signals[i], &UncaughtSinal);
+        signal(signals[i], &signalCausedCrashHandler);
 //        NSLog(@"sigaction err = %i", err);
     }
-    
 }
 
 - (void)showCrashToastWithMessage:(NSString *)message {
@@ -126,10 +124,11 @@ static void UncaughtSinal(int signal) {
 - (void)crashToastTapAction:(UITapGestureRecognizer *)tap {
     UILabel *crashLabel = (UILabel *)tap.view;
     [UIPasteboard generalPasteboard].string = crashLabel.text;
+    self.dismissed = YES;
 }
 
-- (void)handleException:(NSException *)exception{
-    NSString *stackInfo = [[exception userInfo] objectForKey:UncaughtExceptionHandlerAddressesKey];
+- (void)handleException:(NSException *)exception {
+    NSString *stackInfo = [[exception userInfo] objectForKey:handleExceptionAddressesKey];
     
     
 #ifdef DEBUG
@@ -139,7 +138,7 @@ static void UncaughtSinal(int signal) {
 
     CFRunLoopRef runLoop = CFRunLoopGetCurrent();
     CFArrayRef allModes = CFRunLoopCopyAllModes(runLoop);
-    while (YES) {
+    while (!self.dismissed) {
         for (NSString *mode in (__bridge NSArray *)allModes) {
             //为阻止线程退出，使用 CFRunLoopRunInMode(model, 0.001, false)等待系统消息，false表示RunLoop没有超时时间
             CFRunLoopRunInMode((CFStringRef)mode, 0.001, false);
@@ -151,31 +150,28 @@ static void UncaughtSinal(int signal) {
 #endif
     
 //    [RCCrashLog collectCrashInfoWithException:exception exceptionStackInfo:stackInfo viewControllerStackInfo:[self getCurrentViewControllerStackInfo]];
-//    
-//    NSSetUncaughtExceptionHandler(NULL);
-//    signal(SIGHUP, SIG_DFL);
-//    signal(SIGINT, SIG_DFL);
-//    signal(SIGQUIT, SIG_DFL);
-//    signal(SIGABRT, SIG_DFL);
-//    signal(SIGILL, SIG_DFL);
-//    signal(SIGSEGV, SIG_DFL);
-//    signal(SIGFPE, SIG_DFL);
-//    signal(SIGBUS, SIG_DFL);
-//    signal(SIGPIPE, SIG_DFL);
-//    
-//    NSLog(@"%@",[exception name]);
-//    if ([[exception name] isEqual:UncaughtExceptionHandlerSignalExceptionName]) {
-//        kill(getpid(), [[[exception userInfo] objectForKey:UncaughtExceptionHandlerSignalKey] intValue]);
-//    } else {
-//        [exception raise];
-//    }
+    
+    NSSetUncaughtExceptionHandler(NULL);
+    signal(SIGHUP, SIG_DFL);
+    signal(SIGINT, SIG_DFL);
+    signal(SIGQUIT, SIG_DFL);
+    signal(SIGABRT, SIG_DFL);
+    signal(SIGILL, SIG_DFL);
+    signal(SIGSEGV, SIG_DFL);
+    signal(SIGFPE, SIG_DFL);
+    signal(SIGBUS, SIG_DFL);
+    signal(SIGPIPE, SIG_DFL);
+    
+    if ([[exception name] isEqual:handleExceptionSignalExceptionName]) {
+        kill(getpid(), [[[exception userInfo] objectForKey:handleExceptionSignalKey] intValue]);
+    } else {
+        [exception raise];
+    }
     
 }
 
-// 获取崩溃统计的函数指针
 - (NSUncaughtExceptionHandler *)getHandler {
     return NSGetUncaughtExceptionHandler();
 }
-
 
 @end

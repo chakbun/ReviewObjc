@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)shareInstance;
 
+- (void)handleException:(NSException *)exception;
 
 @end
 
