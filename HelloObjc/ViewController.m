@@ -23,6 +23,7 @@
 #import "AVTester.h"
 #import "ProtocolManager.h"
 #import "KeyCommandProtocol.h"
+#import "CrashCatcher.h"
 
 @interface ViewController ()
 
@@ -38,7 +39,8 @@
 //    NSMutableArray *a = @[];
 //    [a addObject:@"x"];
 //    NSLog(@"xxx %@", a);
-    
+ 
+    [CrashCatcher shareInstance];
 }
 
 
