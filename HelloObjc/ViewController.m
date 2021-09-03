@@ -35,11 +35,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+//    NSMutableArray *a = @[];
+//    [a addObject:@"x"];
+//    NSLog(@"xxx %@", a);
+    
 }
 
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
+    abort();
 }
 
 - (IBAction)testButtonAction:(id)sender {
