@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00314CFE26E06B2B001CA082 /* SortingLearning.m in Sources */ = {isa = PBXBuildFile; fileRef = 00314CFD26E06B2B001CA082 /* SortingLearning.m */; };
+		00314D0A26E0B3E1001CA082 /* CrashCatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 00314D0926E0B3E0001CA082 /* CrashCatcher.m */; };
 		DF1C5A7724307DFF00EDF4AC /* RuntimeTester.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1C5A7624307DFF00EDF4AC /* RuntimeTester.m */; };
 		DF1C5A7B2434E73A00EDF4AC /* CopyTester.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1C5A7A2434E73A00EDF4AC /* CopyTester.m */; };
 		DF1C5A842437778200EDF4AC /* UIImageView+JRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1C5A832437778200EDF4AC /* UIImageView+JRAdditions.m */; };
@@ -68,6 +69,8 @@
 /* Begin PBXFileReference section */
 		00314CFC26E06B2B001CA082 /* SortingLearning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SortingLearning.h; sourceTree = "<group>"; };
 		00314CFD26E06B2B001CA082 /* SortingLearning.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SortingLearning.m; sourceTree = "<group>"; };
+		00314D0826E0B3E0001CA082 /* CrashCatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CrashCatcher.h; sourceTree = "<group>"; };
+		00314D0926E0B3E0001CA082 /* CrashCatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CrashCatcher.m; sourceTree = "<group>"; };
 		DF1C5A7524307DFF00EDF4AC /* RuntimeTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeTester.h; sourceTree = "<group>"; };
 		DF1C5A7624307DFF00EDF4AC /* RuntimeTester.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeTester.m; sourceTree = "<group>"; };
 		DF1C5A792434E73A00EDF4AC /* CopyTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CopyTester.h; sourceTree = "<group>"; };
@@ -178,6 +181,15 @@
 			path = Aglorithem;
 			sourceTree = "<group>";
 		};
+		00314D0726E0B3A9001CA082 /* Crash */ = {
+			isa = PBXGroup;
+			children = (
+				00314D0826E0B3E0001CA082 /* CrashCatcher.h */,
+				00314D0926E0B3E0001CA082 /* CrashCatcher.m */,
+			);
+			path = Crash;
+			sourceTree = "<group>";
+		};
 		DF1C5A7424307DDC00EDF4AC /* Runtime */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +287,7 @@
 		DF56986A23EEEFDB00E8D971 /* HelloObjc */ = {
 			isa = PBXGroup;
 			children = (
+				00314D0726E0B3A9001CA082 /* Crash */,
 				00314CFB26E06B10001CA082 /* Aglorithem */,
 				DF69ABD02476B1BC008AD35B /* Protocol */,
 				DF69ABC424757222008AD35B /* WebView */,
@@ -578,6 +591,7 @@
 				DF56987023EEEFDB00E8D971 /* SceneDelegate.m in Sources */,
 				DF755B1D246992DB00F7D1BB /* RunLoopTester.m in Sources */,
 				DF1C5A872438AED600EDF4AC /* UIButton+JRAdditions.m in Sources */,
+				00314D0A26E0B3E1001CA082 /* CrashCatcher.m in Sources */,
 				DF4A3D7524419F6200AC5211 /* Company.xcdatamodeld in Sources */,
 				DF5DF3E223FFC37100EB4FB5 /* JRSingleton.m in Sources */,
 				DF69ABBE24701A2D008AD35B /* AVTester.m in Sources */,

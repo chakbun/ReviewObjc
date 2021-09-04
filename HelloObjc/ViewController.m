@@ -23,6 +23,7 @@
 #import "AVTester.h"
 #import "ProtocolManager.h"
 #import "KeyCommandProtocol.h"
+#import "CrashCatcher.h"
 
 @interface ViewController ()
 
@@ -35,11 +36,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+//    NSMutableArray *a = @[];
+//    [a addObject:@"x"];
+//    NSLog(@"xxx %@", a);
+ 
+    [CrashCatcher shareInstance];
 }
 
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
+    abort();
 }
 
 - (IBAction)testButtonAction:(id)sender {
@@ -74,7 +80,6 @@
         [invocation getReturnValue:&result];
         if (result) {
             NSLog(@"============ return:%@ ============", result);
-
         }
     }
 }
