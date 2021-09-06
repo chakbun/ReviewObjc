@@ -68,7 +68,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "6527134C-5CAE-4196-9D96-95AFDE063DA9 - 43f8371302fa5d17"
+                  uuid = "6527134C-5CAE-4196-9D96-95AFDE063DA9 - 2853ebd9c9c6a898"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -83,7 +83,7 @@
                   offsetFromSymbolStart = "210">
                </Location>
                <Location
-                  uuid = "6527134C-5CAE-4196-9D96-95AFDE063DA9 - 43f8371302fa5d17"
+                  uuid = "6527134C-5CAE-4196-9D96-95AFDE063DA9 - 2853ebd9c9c6a898"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -129,38 +129,6 @@
             startingLineNumber = "39"
             endingLineNumber = "39"
             landmarkName = "-addProtocol:withProtocolName:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BC5443BC-ABA9-43BA-BA2E-771556D597AF"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HelloObjc/ViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "-testButtonAction:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "88BAC82F-4F6F-463A-B864-F2C6DC2B6637"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HelloObjc/Protocol/KeyCommandManager.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "-keyCalculationAction:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

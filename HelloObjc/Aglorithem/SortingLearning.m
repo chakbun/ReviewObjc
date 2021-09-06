@@ -8,7 +8,7 @@
 
 #import "SortingLearning.h"
 
-@interface VTNode : NSObject
+@interface VTNode : NSObjectX
 @property (nonatomic, assign) NSInteger value;
 @property (nonatomic, strong) VTNode *leftChild;
 @property (nonatomic, strong) VTNode *rightChild;
@@ -195,6 +195,10 @@ NSArray * insertSortting(NSArray *array) {
     }
     NSLog(@"insertSortting=>n=%li,O(n)=%i result=%@", array.count, countting, sortedArray);
     return sortedArray;
+}
+
+NSArray * quickSortting(NSArray *array) {
+    return @[];
 }
 
 @implementation SortingLearning
