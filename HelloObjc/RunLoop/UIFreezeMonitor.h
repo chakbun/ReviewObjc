@@ -1,8 +1,8 @@
 //
-//  SortingLearning.h
+//  UIFreezeMonitor.h
 //  HelloObjc
 //
-//  Created by edz on 2021/9/2.
+//  Created by edz on 2021/9/6.
 //  Copyright © 2021 Jaben. All rights reserved.
 //
 
@@ -10,7 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SortingLearning : NSObject
+@interface UIFreezeMonitor : NSObject
+
++ (instancetype)shareMonitor;
+
+- (void)start;
 
 @end
 

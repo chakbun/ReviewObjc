@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		00314CFE26E06B2B001CA082 /* SortingLearning.m in Sources */ = {isa = PBXBuildFile; fileRef = 00314CFD26E06B2B001CA082 /* SortingLearning.m */; };
 		00314D0A26E0B3E1001CA082 /* CrashCatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 00314D0926E0B3E0001CA082 /* CrashCatcher.m */; };
+		0059544626E5DFF90079348C /* UIFreezeMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0059544526E5DFF90079348C /* UIFreezeMonitor.m */; };
 		DF1C5A7724307DFF00EDF4AC /* RuntimeTester.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1C5A7624307DFF00EDF4AC /* RuntimeTester.m */; };
 		DF1C5A7B2434E73A00EDF4AC /* CopyTester.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1C5A7A2434E73A00EDF4AC /* CopyTester.m */; };
 		DF1C5A842437778200EDF4AC /* UIImageView+JRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1C5A832437778200EDF4AC /* UIImageView+JRAdditions.m */; };
@@ -71,6 +72,8 @@
 		00314CFD26E06B2B001CA082 /* SortingLearning.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SortingLearning.m; sourceTree = "<group>"; };
 		00314D0826E0B3E0001CA082 /* CrashCatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CrashCatcher.h; sourceTree = "<group>"; };
 		00314D0926E0B3E0001CA082 /* CrashCatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CrashCatcher.m; sourceTree = "<group>"; };
+		0059544426E5DFF90079348C /* UIFreezeMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIFreezeMonitor.h; sourceTree = "<group>"; };
+		0059544526E5DFF90079348C /* UIFreezeMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIFreezeMonitor.m; sourceTree = "<group>"; };
 		DF1C5A7524307DFF00EDF4AC /* RuntimeTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeTester.h; sourceTree = "<group>"; };
 		DF1C5A7624307DFF00EDF4AC /* RuntimeTester.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeTester.m; sourceTree = "<group>"; };
 		DF1C5A792434E73A00EDF4AC /* CopyTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CopyTester.h; sourceTree = "<group>"; };
@@ -399,6 +402,8 @@
 			children = (
 				DF755B1B246992DB00F7D1BB /* RunLoopTester.h */,
 				DF755B1C246992DB00F7D1BB /* RunLoopTester.m */,
+				0059544426E5DFF90079348C /* UIFreezeMonitor.h */,
+				0059544526E5DFF90079348C /* UIFreezeMonitor.m */,
 			);
 			path = RunLoop;
 			sourceTree = "<group>";
@@ -583,6 +588,7 @@
 				DF69ABCA24757634008AD35B /* TestWebViewController.m in Sources */,
 				DFB5A1522441AC1C00611801 /* Employee+CoreDataProperties.m in Sources */,
 				DF69ABC32471348D008AD35B /* JRPlayerView.m in Sources */,
+				0059544626E5DFF90079348C /* UIFreezeMonitor.m in Sources */,
 				DF69ABD32476B1EF008AD35B /* KeyCommandManager.m in Sources */,
 				DFB5A1502441AC1C00611801 /* Department+CoreDataProperties.m in Sources */,
 				DF1C5A7724307DFF00EDF4AC /* RuntimeTester.m in Sources */,
