@@ -15,13 +15,9 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    [CrashCatcher shareInstance];
     return YES;
 }
-
 
 #pragma mark - UISceneSession lifecycle
 
