@@ -8,7 +8,7 @@
 
 #import "SortingLearning.h"
 
-@interface VTNode : NSObjectX
+@interface VTNode : NSObject
 @property (nonatomic, assign) NSInteger value;
 @property (nonatomic, strong) VTNode *leftChild;
 @property (nonatomic, strong) VTNode *rightChild;
@@ -197,8 +197,40 @@ NSArray * insertSortting(NSArray *array) {
     return sortedArray;
 }
 
-NSArray * quickSortting(NSArray *array) {
-    return @[];
+void quickSort(NSMutableArray<NSNumber *> *arr, NSInteger startIndex, NSInteger endIndex) {
+    NSLog(@"arr:%@ start:%li, end:%li", arr, startIndex, endIndex);
+    int base = arr[startIndex].intValue;
+    int i = (int)startIndex;
+    int j = (int)endIndex;
+    while (i < j) {
+        while (arr[j].intValue > base && i < j) {
+            j--;
+        }
+        if (i < j) {
+            arr[i] = arr[j];
+            i++;
+        }
+
+        while (arr[i].intValue < base && i < j) {
+            i++;
+        }
+        if (i < j) {
+            arr[j] = arr[i];
+            j--;
+        }
+    }
+    arr[i] = @(base);
+    if (startIndex <  i-1) {
+        quickSort(arr, startIndex, i-1);
+    }
+    if (endIndex > i+1) {
+        quickSort(arr, i+1, endIndex);
+    }
+}
+
+NSArray * quickSortting(NSMutableArray<NSNumber *> *arr) {
+    quickSort(arr, 0, arr.count-1);
+    return arr;
 }
 
 @implementation SortingLearning
