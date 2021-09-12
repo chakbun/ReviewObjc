@@ -48,6 +48,7 @@
 		DFB5A1522441AC1C00611801 /* Employee+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB5A14E2441AC1C00611801 /* Employee+CoreDataProperties.m */; };
 		DFB5A15624434E0B00611801 /* NetworkTester.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB5A15524434E0B00611801 /* NetworkTester.m */; };
 		DFBE80DB242893F80004FA0B /* MultipleThreadController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBE80DA242893F80004FA0B /* MultipleThreadController.m */; };
+		DFD591C026EE4FEC00116582 /* NSString+interview.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD591BF26EE4FEC00116582 /* NSString+interview.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +148,8 @@
 		DFB5A15524434E0B00611801 /* NetworkTester.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkTester.m; sourceTree = "<group>"; };
 		DFBE80D9242893F80004FA0B /* MultipleThreadController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipleThreadController.h; sourceTree = "<group>"; };
 		DFBE80DA242893F80004FA0B /* MultipleThreadController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipleThreadController.m; sourceTree = "<group>"; };
+		DFD591BE26EE4FEC00116582 /* NSString+interview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+interview.h"; sourceTree = "<group>"; };
+		DFD591BF26EE4FEC00116582 /* NSString+interview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+interview.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +293,7 @@
 		DF56986A23EEEFDB00E8D971 /* HelloObjc */ = {
 			isa = PBXGroup;
 			children = (
+				DFD591BD26EE4FBB00116582 /* NSString */,
 				00314D0726E0B3A9001CA082 /* Crash */,
 				00314CFB26E06B10001CA082 /* Aglorithem */,
 				DF69ABD02476B1BC008AD35B /* Protocol */,
@@ -434,6 +438,15 @@
 				DFBE80DA242893F80004FA0B /* MultipleThreadController.m */,
 			);
 			path = Thread;
+			sourceTree = "<group>";
+		};
+		DFD591BD26EE4FBB00116582 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				DFD591BE26EE4FEC00116582 /* NSString+interview.h */,
+				DFD591BF26EE4FEC00116582 /* NSString+interview.m */,
+			);
+			path = NSString;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -601,6 +614,7 @@
 				DF4A3D7524419F6200AC5211 /* Company.xcdatamodeld in Sources */,
 				DF5DF3E223FFC37100EB4FB5 /* JRSingleton.m in Sources */,
 				DF69ABBE24701A2D008AD35B /* AVTester.m in Sources */,
+				DFD591C026EE4FEC00116582 /* NSString+interview.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

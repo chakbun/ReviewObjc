@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "CrashCatcher.h"
+#import "NSString+interview.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +16,7 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSString *re = [@"hello" reverseString];
     return YES;
 }
 
