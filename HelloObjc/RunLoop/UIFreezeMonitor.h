@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)shareMonitor;
 
 - (void)start;
+- (void)stop;
 
 @end
 

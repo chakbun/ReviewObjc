@@ -8,26 +8,10 @@
 
 #import "ViewController.h"
 #import "SecViewController.h"
-#import "JRSingleton.h"
-#import "MultipleThreadController.h"
-#import "RuntimeTester.h"
-#import "CopyTester.h"
-#import "UIImageView+JRAdditions.h"
-#import "UIButton+JRAdditions.h"
-#import "JRPerferenceManager.h"
-#import "CoreDataTester.h"
-#import "Employee.h"
-#import "NetworkTester.h"
-#import "RunLoopTester.h"
-#import "KVOCTester.h"
-#import "AVTester.h"
-#import "ProtocolManager.h"
-#import "KeyCommandProtocol.h"
-#import "CrashCatcher.h"
+#import "UIFreezeMonitor.h"
 
 @interface ViewController ()
 
-@property (nonatomic, strong) AVTester *tester;
 
 @end
 
@@ -35,27 +19,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-//    NSMutableArray *a = @[];
-//    [a addObject:@"x"];
-//    NSLog(@"xxx %@", a);
- 
-    [CrashCatcher shareInstance];
+    [[UIFreezeMonitor shareMonitor] start];
 }
 
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    abort();
+    NSLog(@"sleep at: %@", [NSDate date]);
+    sleep(3);
+    NSLog(@"wake up at: %@", [NSDate date]);
 }
 
 - (IBAction)testButtonAction:(id)sender {
-    NSArray *arr = @[@16, @18, @22, @67];
-    
-    id<KeyCommandProtocol> protcol = [[ProtocolManager shareManager] protocolWithName:@"KeyCommandProtocol"];
-    
-    float result = [protcol avgInArray:arr];
-    
-    NSLog(@"============ result : %f ============", result);
+
 }
 
 - (NSString *)valueAtKey:(NSString *)key {
@@ -64,24 +39,5 @@
     return temp[key];
 }
 
-- (void)invokeTesting {
-    SEL targetSelector = NSSelectorFromString(@"valueAtKey:");
-    NSMethodSignature *methodSig = [self methodSignatureForSelector:targetSelector];
-    
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
-    invocation.selector = targetSelector;
-    NSString *key = @"name";
-    [invocation setArgument:&key atIndex:2];
-    [invocation invokeWithTarget:self];
-    
-    if (methodSig.methodReturnLength > 0) {
-        NSLog(@" return type = %s", methodSig.methodReturnType);
-        NSString *result = nil;
-        [invocation getReturnValue:&result];
-        if (result) {
-            NSLog(@"============ return:%@ ============", result);
-        }
-    }
-}
 
 @end
